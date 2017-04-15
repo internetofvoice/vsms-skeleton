@@ -17,3 +17,14 @@ $container['notFoundHandler'] = function(\Slim\Container $c) {
             ->write('Page not found');
     };
 };
+
+$container['renderer'] = function (\Slim\Container $c) {
+    $settings = $c->get('settings');
+    $renderer = new \Slim\Views\Twig($settings['renderer']['template_path'], [
+        'cache' => $settings['renderer']['cache_path']
+    ]);
+
+    $renderer->addExtension(new Slim\Views\TwigExtension($c['router'], $settings['web_root']));
+    $renderer->offsetSet('settings', $settings);
+    return $renderer;
+};

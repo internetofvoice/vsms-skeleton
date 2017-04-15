@@ -23,7 +23,10 @@ final class HomeController extends AbstractController
      */
     public function home($request, $response, $args)
     {
-        $response->getBody()->write('Home');
-        return $response;
+        return $this->container->get('renderer')->render($response, 'home/home.twig', [
+            'language'   => $this->language,
+            'page_title' => 'Home',
+            'hostname'   => $request->getUri()->getHost(),
+        ]);
     }
 }

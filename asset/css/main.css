@@ -1,0 +1,53 @@
+/**
+ * Global styles
+ */
+body {
+    color: #40434e;
+    background: #fff;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 16px;
+}
+
+p {
+	margin-bottom: 20px;
+}
+
+.text-muted {
+	color: #90939e;
+}
+
+
+/**
+ * Grid
+ */
+.app-container {
+	max-width: 480px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.app-container .page-header {
+	margin-top: 0;
+}
+
+.app-container h1 {
+	font-size: 32px;
+}
+
+
+/**
+ * Forms
+ */
+form .required label:after {
+	content: ' *';
+	position: relative;
+	font-size: 0.8em;
+	top: -0.25em;
+}
+
+
+.login-form button {
+	display: block;
+	width: 100%;
+	font-size: 1.1em;
+}

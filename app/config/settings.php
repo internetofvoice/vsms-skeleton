@@ -12,12 +12,14 @@ $base_dir            = realpath(__DIR__ . '/..');   // File system root
 $web_root            = '';                          // Web server root
 $displayErrorDetails = false;                       // Display error details?
 $validateCertificate = true;                        // Validate request certificate (i.e. Amazon Signature Chain)?
+$enableRenderCache   = true;                        // Enable renderer caching?
 
 // Environment dependent overrides
 switch($environment) {
     case 'dev':
         $displayErrorDetails = true;
         $validateCertificate = false;
+        $enableRenderCache   = false;
     break;
 
     case 'test':
@@ -50,5 +52,10 @@ return [
 
         'locale_default' => 'en-US',
         'locales'        => ['de-DE', 'en-US', 'en-GB'],
+
+        'renderer' => [
+            'template_path' => [$base_dir . '/src/Template'],
+            'cache_path'    => ($enableRenderCache ? $base_dir . '/var/rendered' : false),
+        ],
     ],
 ];
