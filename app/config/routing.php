@@ -7,4 +7,4 @@
  */
 
 /* Home */
-// $app->get('/', \InternetOfVoice\VSMS\Controller\HomeController::class . ':home')->setName('home');
+$app->get('/', \Acme\VSMS\Controller\HomeController::class . ':home');
