@@ -50,7 +50,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "src/Test"
+            "Tests\\": "test"
         }
     },
     "scripts": {

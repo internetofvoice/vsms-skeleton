@@ -7,7 +7,7 @@ use \InternetOfVoice\VSMS\Core\Controller\AbstractController;
 /**
  * HomeController
  *
- * @author    Alexander Schmidt <a.schmidt@internet-of-voice.de>
+ * @author  Alexander Schmidt <a.schmidt@internet-of-voice.de>
  */
 final class HomeController extends AbstractController
 {
