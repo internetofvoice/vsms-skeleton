@@ -19,7 +19,7 @@ class LinkAccountTest extends AbstractTestCase
     {
         $response = $this->runApp('GET', '/');
         $this->assertEquals(200, $response->getStatusCode());
-        $this->assertEquals('Home', (string)$response->getBody());
+        $this->assertContains('Welcome to', (string)$response->getBody());
 
         $response = $this->runApp('POST', '/');
         $this->assertEquals(405, $response->getStatusCode());
