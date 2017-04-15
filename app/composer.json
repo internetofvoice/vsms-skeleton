@@ -1,0 +1,59 @@
+{
+    "name": "internetofvoice/vsms-skeleton",
+    "description": "VSMS - a voice skill management system for voice assistant skills.",
+    "license": "MIT",
+    "type": "project",
+    "homepage": "http://www.internet-of-voice.de",
+    "authors": [
+        {
+            "name": "Alexander Schmidt",
+            "email": "a.schmidt@internet-of-voice.de",
+            "homepage": "http://www.internet-of-voice.de",
+            "role": "Developer"
+        },
+        {
+            "name": "Robert C. Mendez",
+            "email": "rcm@internet-of-voice.de",
+            "homepage": "http://www.internet-of-voice.de",
+            "role": "Management"
+        },
+        {
+            "name": "Marius Wolf",
+            "email": "m.wolf@internet-of-voice.de",
+            "homepage": "http://www.internet-of-voice.de",
+            "role": "Management"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "volume-6328@git.hidrive.strato.com:/users/volume-6328/repos/iov/vsms-core.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/anschluss80/amazon-alexa-php"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.0",
+        "internetofvoice/vsms-core": "dev-develop",
+        "jakubsuchy/amazon-alexa-php": "dev-master",
+        "analog/analog": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": ">=5.7 < 6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "InternetOfVoice\\VSMS\\Skeleton\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "src/Test"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    }
+}
