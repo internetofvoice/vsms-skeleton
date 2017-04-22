@@ -21,10 +21,9 @@ final class HomeController extends AbstractController
      * @access public
      * @author a.schmidt@internet-of-voice.de
      */
-    public function home($request, $response, $args)
-    {
+    public function home($request, $response, $args) {
         return $this->container->get('renderer')->render($response, 'home/home.twig', [
-            'language'   => $this->language,
+            'language'   => $this->i18n->getLanguage(),
             'page_title' => 'Home',
             'hostname'   => $request->getUri()->getHost(),
         ]);

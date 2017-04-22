@@ -2,21 +2,17 @@
 
 namespace Tests\Controller;
 
-
 /**
- * LinkAccountTest
- *
- * Tests account linking functionality
+ * HomeControllerTest
  *
  * @author  Alexander Schmidt <a.schmidt@internet-of-voice.de>
  */
-class LinkAccountTest extends AbstractTestCase
+class HomeControllerTest extends AbstractTestCase
 {
     /**
      * Test home
      */
-    public function testHome()
-    {
+    public function testHome() {
         $response = $this->runApp('GET', '/');
         $this->assertEquals(200, $response->getStatusCode());
         $this->assertContains('Welcome to', (string)$response->getBody());

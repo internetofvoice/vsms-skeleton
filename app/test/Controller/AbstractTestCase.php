@@ -24,27 +24,26 @@ abstract class AbstractTestCase extends \PHPUnit_Framework_TestCase
      * @param  array|object|null    $data       Request data
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function runApp($method, $uri, $headers = [], $data = null)
-    {
+    public function runApp($method, $uri, $headers = [], $data = null) {
         $headers = array_merge([
             'REQUEST_METHOD' => $method,
-            'REQUEST_URI' => $uri
+            'REQUEST_URI'    => $uri
         ], $headers);
 
         $environment = Environment::mock($headers);
         $request = Request::createFromEnvironment($environment);
-
         if (isset($data)) {
             $request = $request->withParsedBody($data);
         }
 
-        $response = new Response();
         $settings = require __DIR__ . '/../../config/settings.php';
         $app = new App($settings);
+        $container = $app->getContainer();
+        $container['request'] = $request; // override with mocked request
 
         require __DIR__ . '/../../config/dependencies.php';
         require __DIR__ . '/../../config/routing.php';
 
-        return $app->process($request, $response);
+        return $app->process($request, new Response());
     }
 }
