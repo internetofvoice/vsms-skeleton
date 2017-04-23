@@ -16,7 +16,7 @@ use Slim\Http\Uri;
  * @author  Alexander Schmidt <a.schmidt@internet-of-voice.de>
  */
 
-class ControllerTestCase extends \PHPUnit_Framework_TestCase
+abstract class ControllerTestCase extends \PHPUnit_Framework_TestCase
 {
     /**
      * Run the application
