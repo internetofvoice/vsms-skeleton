@@ -7,7 +7,7 @@ namespace Tests\Controller;
  *
  * @author  Alexander Schmidt <a.schmidt@internet-of-voice.de>
  */
-class HomeControllerTest extends AbstractTestCase
+class HomeControllerTest extends ControllerTestCase
 {
     /**
      * Test home
