@@ -7,4 +7,4 @@
  */
 
 /* Home */
-$app->get('/', \Acme\VSMS\Controller\HomeController::class . ':home');
+$app->get('/', \Acme\Skill\Controller\HomeController::class . ':home');

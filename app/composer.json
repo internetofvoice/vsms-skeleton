@@ -46,7 +46,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Acme\\VSMS\\": "src/"
+            "Acme\\Skill\\": "src/"
         }
     },
     "autoload-dev": {

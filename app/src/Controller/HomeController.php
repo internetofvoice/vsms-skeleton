@@ -1,6 +1,6 @@
 <?php
 
-namespace Acme\VSMS\Controller;
+namespace Acme\Skill\Controller;
 
 use \InternetOfVoice\VSMS\Core\Controller\AbstractController;
 
