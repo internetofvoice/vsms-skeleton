@@ -18,6 +18,16 @@ $container['notFoundHandler'] = function(\Slim\Container $c) {
     };
 };
 
+// Translations
+$container['i18n'] = function(\Slim\Container $c) {
+    $settings = $c->get('settings');
+    return new \InternetOfVoice\VSMS\Core\Helper\TranslationHelper(
+        $settings['locales'],
+        $settings['locale_default']
+    );
+};
+
+// View renderer
 $container['renderer'] = function (\Slim\Container $c) {
     $settings = $c->get('settings');
     $renderer = new \Slim\Views\Twig($settings['renderer']['template_path'], [
