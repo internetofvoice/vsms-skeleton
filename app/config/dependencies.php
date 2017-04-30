@@ -52,5 +52,7 @@ $container['logger'] = function(\Slim\Container $c) {
         $settings['logger']['threshold']
     ));
 
+    \Analog\Analog::$timezone = date_default_timezone_get();
+
     return $logger;
 };
