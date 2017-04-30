@@ -13,6 +13,7 @@ $web_root            = '';                          // Web server root
 $displayErrorDetails = false;                       // Display error details?
 $validateCertificate = true;                        // Validate request certificate (i.e. Amazon Signature Chain)?
 $enableRenderCache   = true;                        // Enable renderer caching?
+$logLevel            = \Analog::NOTICE;             // Log level (URGENT, ALERT, CRITICAL , ERROR, WARNING, NOTICE, INFO, DEBUG)
 
 // Environment dependent overrides
 switch($environment) {
@@ -20,10 +21,12 @@ switch($environment) {
         $displayErrorDetails = true;
         $validateCertificate = false;
         $enableRenderCache   = false;
+        $logLevel            = \Analog::DEBUG;
     break;
 
     case 'test':
         $displayErrorDetails = true;
+        $logLevel            = \Analog::DEBUG;
     break;
 
     case 'stage':
@@ -50,12 +53,19 @@ return [
         'web_root'   => $web_root,
         'asset_root' => $web_root . '/asset',
 
-        'locale_default' => 'en-US',
-        'locales'        => ['de-DE', 'en-US', 'en-GB'],
+        'locale_default'   => 'en-US',
+        'locales'          => ['de-DE', 'en-US', 'en-GB'],
+        'translation_path' => $base_dir . '/src/Translation',
 
         'renderer' => [
             'template_path' => [$base_dir . '/src/Template'],
             'cache_path'    => ($enableRenderCache ? $base_dir . '/var/rendered' : false),
+        ],
+
+        'logger' => [
+            'file'      => $base_dir . '/var/log/app.log',
+            'threshold' => $logLevel,
+            'mask'      => ['username', 'password', 'accessToken'],
         ],
     ],
 ];
