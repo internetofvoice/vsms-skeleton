@@ -1,9 +1,8 @@
 {#
-    Template layout/layout
     @author  Alexander Schmidt <a.schmidt@internet-of-voice.de>
 #}
 <!DOCTYPE html>
-<html lang="{{ language }}">
+<html lang="{{ i18n.getLanguage() }}">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -42,6 +41,8 @@
 {#{/if}#}
 </head>
 <body>
-{% block body %}{% endblock %}
+{% block body %}
+	<h1>Default Layout</h1>
+{% endblock %}
 </body>
 </html>
