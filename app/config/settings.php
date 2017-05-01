@@ -14,6 +14,7 @@ $displayErrorDetails = false;                       // Display error details?
 $validateCertificate = true;                        // Validate request certificate (i.e. Amazon Signature Chain)?
 $enableRenderCache   = true;                        // Enable renderer caching?
 $logLevel            = \Analog::NOTICE;             // Log level (URGENT, ALERT, CRITICAL , ERROR, WARNING, NOTICE, INFO, DEBUG)
+$logFormat           = '%2$s %3$s: %4$s' . PHP_EOL; // Including remote IP: '%s %s %s: %s' . PHP_EOL
 
 // Environment dependent overrides
 switch($environment) {
@@ -65,6 +66,7 @@ return [
         'logger' => [
             'file'      => $base_dir . '/var/log/app.log',
             'threshold' => $logLevel,
+            'format'    => $logFormat,
             'mask'      => ['username', 'password', 'accessToken'],
         ],
     ],

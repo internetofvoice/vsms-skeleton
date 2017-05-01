@@ -43,7 +43,7 @@ $container['renderer'] = function(\Slim\Container $c) {
 $container['logger'] = function(\Slim\Container $c) {
     $settings = $c->get('settings');
     $logger   = new InternetOfVoice\VSMS\Core\Helper\LogHelper();
-    $logger->format('%2$s %3$s: %4$s' . PHP_EOL);
+    $logger->format($settings['logger']['format']);
     $logger->setMask($settings['logger']['mask']);
     $logger->handler(Analog\Handler\Threshold::init (
         Analog\Handler\LevelName::init(
