@@ -21,6 +21,8 @@ final class HomeController extends AbstractController
      * @author a.schmidt@internet-of-voice.de
      */
     public function home($request, $response) {
+        $this->logger->logRequest($request);
+
         return $this->container->get('renderer')->render($response, 'home/home.twig', [
             'i18n'       => $this->i18n,
             'page_title' => 'Home',
