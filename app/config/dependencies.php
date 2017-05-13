@@ -56,3 +56,8 @@ $container['logger'] = function(\Slim\Container $c) {
 
     return $logger;
 };
+
+// SkillHelper
+$container['helper'] = function(\Slim\Container $c) {
+    return new \InternetOfVoice\VSMS\Core\Helper\SkillHelper();
+};
