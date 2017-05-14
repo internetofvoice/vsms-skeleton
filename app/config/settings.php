@@ -48,6 +48,7 @@ return [
         'displayErrorDetails'    => $displayErrorDetails,
         'validateCertificate'    => $validateCertificate,
         'addContentLengthHeader' => false,
+        'auto_init'              => ['logger', 'translator', 'skillHelper'],
 
         'base_dir'   => $base_dir,
         'asset_dir'  => realpath($base_dir . '/../asset'),

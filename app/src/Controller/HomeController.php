@@ -24,7 +24,7 @@ final class HomeController extends AbstractController
         $this->logger->logRequest($request);
 
         return $this->container->get('renderer')->render($response, 'home/home.twig', [
-            'i18n'       => $this->i18n,
+            'translator' => $this->translator,
             'page_title' => 'Home',
             'hostname'   => $request->getUri()->getHost(),
         ]);

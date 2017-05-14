@@ -18,8 +18,8 @@ $container['notFoundHandler'] = function(\Slim\Container $c) {
     };
 };
 
-// Translations
-$container['i18n'] = function(\Slim\Container $c) {
+// Translator
+$container['translator'] = function(\Slim\Container $c) {
     $settings = $c->get('settings');
     return new \InternetOfVoice\VSMS\Core\Helper\TranslationHelper(
         $settings['locales'],
@@ -58,6 +58,6 @@ $container['logger'] = function(\Slim\Container $c) {
 };
 
 // SkillHelper
-$container['helper'] = function(\Slim\Container $c) {
+$container['skillHelper'] = function() {
     return new \InternetOfVoice\VSMS\Core\Helper\SkillHelper();
 };
