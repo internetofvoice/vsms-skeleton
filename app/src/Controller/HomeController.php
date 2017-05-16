@@ -2,7 +2,8 @@
 
 namespace Acme\Skill\Controller;
 
-use \InternetOfVoice\VSMS\Core\Controller\AbstractController;
+use InternetOfVoice\VSMS\Core\Controller\AbstractController;
+use Slim\Container;
 
 /**
  * HomeController
@@ -11,6 +12,17 @@ use \InternetOfVoice\VSMS\Core\Controller\AbstractController;
  */
 final class HomeController extends AbstractController
 {
+    /**
+     * Constructor
+     *
+     * @param   \Slim\Container     $container
+     * @access	public
+     * @author	a.schmidt@internet-of-voice.de
+     */
+    public function __construct(Container $container) {
+        parent::__construct($container);
+    }
+
     /**
      * Home
      *
