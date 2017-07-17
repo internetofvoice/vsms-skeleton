@@ -8,7 +8,7 @@
 
 $container = $app->getContainer();
 
-// 404 Handler
+// Simple 404 handler
 $container['notFoundHandler'] = function(\Slim\Container $c) {
     return function() use ($c) {
         return $c['response']
@@ -18,7 +18,7 @@ $container['notFoundHandler'] = function(\Slim\Container $c) {
     };
 };
 
-// Translator
+// TranslationHelper
 $container['translator'] = function(\Slim\Container $c) {
     $settings = $c->get('settings');
     return new \InternetOfVoice\VSMS\Core\Helper\TranslationHelper(
@@ -27,19 +27,23 @@ $container['translator'] = function(\Slim\Container $c) {
     );
 };
 
-// View renderer
+// View renderer (Slim)
 $container['renderer'] = function(\Slim\Container $c) {
     $settings = $c->get('settings');
     $renderer = new \Slim\Views\Twig($settings['renderer']['template_path'], [
         'cache' => $settings['renderer']['cache_path']
     ]);
 
+    // add Slim's TwigExtension (@see https://github.com/slimphp/Slim-Views)
     $renderer->addExtension(new Slim\Views\TwigExtension($c['router'], $settings['web_root']));
+
+    // make settings array accessible in Twig templates (see src/Template/layout/layout.twig for example usage)
     $renderer->offsetSet('settings', $settings);
+
     return $renderer;
 };
 
-// Logging
+// Logger (Analog) via LogHelper
 $container['logger'] = function(\Slim\Container $c) {
     $settings = $c->get('settings');
     $logger   = new InternetOfVoice\VSMS\Core\Helper\LogHelper();
