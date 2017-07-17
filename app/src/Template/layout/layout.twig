@@ -8,7 +8,6 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>{{ page_title }}</title>
-{#
 	<meta name="description" content="">
 	<meta name="keywords" content="">
 	<meta property="og:title" content="">
@@ -18,7 +17,6 @@
 	<meta property="og:description" content="">
 	<meta property="og:type" content="">
 	<meta property="og:locale" content="">
-#}
 	<meta name="robots" content="index,follow">
 	<meta name="author" content="Alexander Schmidt">
 	<meta name="copyright" content="Internet of Voice">
@@ -30,15 +28,9 @@
 	<link rel="shortcut icon" href="{{ settings.asset_root }}/img/icon/favicon.ico">
 	<meta name="msapplication-config" content="{{ settings.asset_root }}/img/icon/browserconfig.xml">
 	<meta name="theme-color" content="#ffffff">
-{#
-{if $settings.minifiedAssets}
-	<link rel="stylesheet" type="text/css" href="{{ base_url( }}/min/min.css">
-{else}
-#}
 	<link rel="stylesheet" type="text/css" href="{{ settings.asset_root }}/lib/bootstrap-3.3.7-custom/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="{{ settings.asset_root }}/css/fonts.css">
 	<link rel="stylesheet" type="text/css" href="{{ settings.asset_root }}/css/main.css">
-{#{/if}#}
 </head>
 <body>
 {% block body %}
