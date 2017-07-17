@@ -15,7 +15,7 @@ class HomeControllerTest extends ControllerTestCase
     public function testHome() {
         $response = $this->runApp('GET', '/');
         $this->assertEquals(200, $response->getStatusCode());
-        $this->assertContains('Welcome to', (string)$response->getBody());
+        $this->assertContains('Voice Skill Management System', (string)$response->getBody());
 
         $response = $this->runApp('POST', '/');
         $this->assertEquals(405, $response->getStatusCode());

@@ -15,6 +15,11 @@ $validateCertificate = true;                        // Validate request certific
 $enableRenderCache   = true;                        // Enable renderer caching?
 $logLevel            = \Analog::NOTICE;             // Log level (URGENT, ALERT, CRITICAL , ERROR, WARNING, NOTICE, INFO, DEBUG)
 $logFormat           = '%2$s %3$s: %4$s' . PHP_EOL; // Including remote IP: '%s %s %s: %s' . PHP_EOL
+$logMask             = [                            // Mask values of these keys in log
+    'username',
+    'password',
+    'accessToken',
+];
 
 // Environment dependent overrides
 switch($environment) {
@@ -23,6 +28,7 @@ switch($environment) {
         $validateCertificate = false;
         $enableRenderCache   = false;
         $logLevel            = \Analog::DEBUG;
+        $logMask             = [];
     break;
 
     case 'test':
@@ -32,9 +38,11 @@ switch($environment) {
 
     case 'stage':
         $displayErrorDetails = true;
+        $logLevel            = \Analog::DEBUG;
     break;
 
     case 'prod':
+        $logLevel            = \Analog::DEBUG;
     break;
 
     default:
@@ -68,7 +76,7 @@ return [
             'file'      => $base_dir . '/var/log/app.log',
             'threshold' => $logLevel,
             'format'    => $logFormat,
-            'mask'      => ['username', 'password', 'accessToken'],
+            'mask'      => $logMask,
         ],
     ],
 ];
