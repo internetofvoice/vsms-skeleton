@@ -1,13 +1,13 @@
 # Voice Skill Management System (Skeleton)
 
-> A framework for developing custom skills for voice assistant systems.
+> A framework aiming at the rapid development of custom skills for voice assistant systems.
 
 ### Introduction
-VSMS is a skill development framework for voice assistants like Amazon Voice Service. It aims to speed up skill 
-development by incorporating boilerplate code into a framework. VSMS is able to run multiple skills from one 
-installation as well as serving HTML content. 
+VSMS is a skill development framework for voice assistants such as Amazon Voice Service. The intention is to speed up 
+skill development by incorporating boilerplate code into a framework. VSMS is preconfigured to run multiple skills as 
+well as serving HTML content. 
 
-It is entirely written in PHP based on Slim application framework and loosely follows a
+It is written in PHP, based on Slim application framework and loosely follows a
 [Model-View-Controller](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) pattern. 
 The framework uses the Twig template engine, Analog logger und PHPUnit (see Libraries) but feel free to choose 
 libraries and a project structure that best fits your needs. 
