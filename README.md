@@ -2,7 +2,7 @@
 
 > A framework aiming at the rapid development of custom skills for voice assistant systems.
 
-### Introduction
+## Introduction
 VSMS is a skill development framework for voice assistants such as Amazon Voice Service. The intention is to speed up 
 skill development by incorporating boilerplate code into a framework. VSMS is preconfigured to run multiple skills as 
 well as serving HTML content.  
@@ -10,7 +10,7 @@ well as serving HTML content.
 It is written in PHP and comes with Slim application framework, Twig template engine, Analog logger und PHPUnit tests 
 (see "Libraries" section), but you are totally free to choose dependencies and a project structure as you see fit. 
 
-### Requirements
+## Requirements
 * PHP (at least 5.5.0)
 * SSL-enabled Webserver 
 * [composer](https://getcomposer.org/download/)
@@ -23,13 +23,13 @@ It is written in PHP and comes with Slim application framework, Twig template en
     - Hardware device like Echo, Echo dot or similar products
     - Software service like [Reverb](https://reverb.ai/) or [Echosim](https://echosim.io/)
 
-### Installation
+## Installation
 ```
 $ composer new-project internetofvoice/vsms-skeleton my-skills 
 ```
 
-### Outline
-#### Libraries
+## Outline
+### Libraries
 * Amazon-Alexa-PHP: https://github.com/internetofvoice/amazon-alexa-php
 * VSMS-Core: https://github.com/internetofvoice/vsms-core
 * Slim: https://www.slimframework.com
@@ -37,7 +37,7 @@ $ composer new-project internetofvoice/vsms-skeleton my-skills
 * Twig: https://twig.symfony.com
 * PHPUnit: https://phpunit.de
 
-#### Directory structure
+### Directory structure
 ```
 + app                   Application files
 | + config              Configuration (settings, dependency injection, routing)
@@ -59,28 +59,56 @@ $ composer new-project internetofvoice/vsms-skeleton my-skills
 | + js                  JavaScript
 | + vendor              Vendor libraries (frontend)
 ```
-#### Controller
+### Controller
 This is where your Controllers, both skill and HTML controllers, reside. Controller methods are called based on 
 intent invocations (skill controllers) and routing configuration (HTML controllers). Have a look at the provided 
 examples for a kick start.  
 
-#### Service
+### Service
 Services provide backend functionality, like interactions with third party APIs that your skill can query data from.
 
-#### Template
+### Template
 The HTML templates help you to produce HTML output which might be needed for Amazon's account linking feature, 
 displaying your privacy policy page or some neat marketing web pages.
 
 ### Tests
 Testing is preconfigured to work with PHPUnit. Example tests are included, so you can throw in your own tests quickly.
 
-### Connecting a skill with Amazon
+## Setup
+### Server
+- setup an SSL-enabled webserver with PHP (5.5.0 or newer)
+- for development environments, a secure tunneling service like https://ngrok.com might be useful
+- install VSMS as described in the "Installation" section above 
+
+### Example content
+VSMS comes with an example skill, a privacy policy page and a login form for account linking. While the HTML pages 
+can be viewed in a browser, skills require a specific request that you can fake with a tool like 
+[Postman](https://www.getpostman.com/) (also available as a Chrome extension).  
+
+The pre-configured URIs are:
+- Skill: http(s)://your-hostname/skill/example
+- Privacy Policy: http(s)://your-hostname/privacy/example
+- Login Form: http(s)://your-hostname/link-account/example
+
+### Faking a skill request with Postman
+@TODO
+
+### Running tests
+```
+$ cd (project-root)/app 
+$ composer test 
+```
+ 
+### Connecting the example skill with Amazon
+- Create an account or login at https://developer.amazon.com
+- Go to Alexa > Alexa Skills Kit https://developer.amazon.com/edw/home.html#/skills
+- Add a new skill 
 @TODO
 
 ### Submitting a skill for certification
 @TODO
 
-### What's next?
+## What's next?
 VSMS aims to interact with multiple voice assistant systems, so it's not only nailed down to Amazon Voice Service. 
 With more services popping up, VSMS will be extended to support those too. The idea is to have a single environment 
 to handle all your voice assistant development needs without writing duplicate code.
