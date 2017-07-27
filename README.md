@@ -32,33 +32,33 @@ $ composer new-project internetofvoice/vsms-skeleton my-skills
 
 ### Overview
 #### Libraries
-* Amazon-Alexa-PHP (https://github.com/anschluss80/amazon-alexa-php)
-* VSMS-Core (github)
-* Slim (https://www.slimframework.com)
-* Analog (https://github.com/jbroadway/analog)
-* Twig (https://twig.symfony.com/)
-* PHPUnit for tests (https://phpunit.de/)
+* Amazon-Alexa-PHP: https://github.com/internetofvoice/amazon-alexa-php
+* VSMS-Core: https://github.com/internetofvoice/vsms-core
+* Slim: https://www.slimframework.com
+* Analog: https://github.com/jbroadway/analog
+* Twig: https://twig.symfony.com
+* PHPUnit: https://phpunit.de
 
 #### Directory structure
 ```
 + app                   Application files
-| + config              Configuration (settings, dependecny injection, routing)
-| + src                 Application source
-| | + Controller        Controllers for skill handling and HTML pages 
+| + config              Configuration (settings, dependency injection, routing)
+| + src                 Application sources
+| | + Controller        Controllers 
 | | + Service           Services
 | | + Template          Twig templates
 | + test                Application tests
 | | + Controller        Controller tests
 | | + Fixtures          Test fixtures
 | + var                 Variable data
-| | + log               Log files
-| | + rendered          View renderer cache
+| | + log               Logfiles
+| | + rendered          Template cache
 | + vendor              Vendor libraries
 + asset                 Media files
 | + css                 CSS
 | + img                 Images
 | + js                  JavaScript
-| + lib                 Vendor libraries
+| + vendor              Vendor libraries
 ```
 #### Controller
 This is where your Controllers reside. Controller methods are called based on routing (HTML controllers) or intent 
