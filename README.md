@@ -5,12 +5,10 @@
 ### Introduction
 VSMS is a skill development framework for voice assistants such as Amazon Voice Service. The intention is to speed up 
 skill development by incorporating boilerplate code into a framework. VSMS is preconfigured to run multiple skills as 
-well as serving HTML content. 
+well as serving HTML content.  
 
-It is written in PHP, based on Slim application framework and loosely follows a
-[Model-View-Controller](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) pattern. 
-The framework uses the Twig template engine, Analog logger und PHPUnit (see Libraries) but feel free to choose 
-libraries and a project structure that best fits your needs. 
+It is written in PHP and comes with Slim application framework, Twig template engine, Analog logger und PHPUnit tests 
+(see "Libraries" section), but you are totally free to choose dependencies and a project structure as you see fit. 
 
 ### Requirements
 * PHP (at least 5.5.0)
@@ -30,7 +28,7 @@ libraries and a project structure that best fits your needs.
 $ composer new-project internetofvoice/vsms-skeleton my-skills 
 ```
 
-### Overview
+### Outline
 #### Libraries
 * Amazon-Alexa-PHP: https://github.com/internetofvoice/amazon-alexa-php
 * VSMS-Core: https://github.com/internetofvoice/vsms-core
@@ -46,47 +44,47 @@ $ composer new-project internetofvoice/vsms-skeleton my-skills
 | + src                 Application sources
 | | + Controller        Controllers 
 | | + Service           Services
-| | + Template          Twig templates
+| | + Template          HTML templates
 | + test                Application tests
 | | + Controller        Controller tests
 | | + Fixtures          Test fixtures
+| | + Service           Service Tests
 | + var                 Variable data
-| | + log               Logfiles
+| | + log               Log files
 | | + rendered          Template cache
-| + vendor              Vendor libraries
+| + vendor              Vendor libraries (backend)
 + asset                 Media files
 | + css                 CSS
 | + img                 Images
 | + js                  JavaScript
-| + vendor              Vendor libraries
+| + vendor              Vendor libraries (frontend)
 ```
 #### Controller
-This is where your Controllers reside. Controller methods are called based on routing (HTML controllers) or intent 
-invocations (skill controllers). Have a look at the provided example controllers for a kick start.  
+This is where your Controllers, both skill and HTML controllers, reside. Controller methods are called based on 
+intent invocations (skill controllers) and routing configuration (HTML controllers). Have a look at the provided 
+examples for a kick start.  
 
-#### Service (Model)
+#### Service
 Services provide backend functionality, like interactions with third party APIs that your skill can query data from.
-This is where your models live.
 
-#### Template (View)
-The Twig templates help you to produce HTML output - like for Amazon's account linking feature or some neat marketing 
-web pages.
+#### Template
+The HTML templates help you to produce HTML output which might be needed for Amazon's account linking feature, 
+displaying your privacy policy page or some neat marketing web pages.
 
 ### Tests
-Testing is preconfigured with PHPUnit, and example tests are setup so you can throw in your own tests quickly.
+Testing is preconfigured to work with PHPUnit. Example tests are included, so you can throw in your own tests quickly.
 
-### Connecting the (example) skill with Amazon
-(@TODO)
+### Connecting a skill with Amazon
+@TODO
 
 ### Submitting a skill for certification
-(@TODO)
+@TODO
 
 ### What's next?
 VSMS aims to interact with multiple voice assistant systems, so it's not only nailed down to Amazon Voice Service. 
-With more services popping up, VSMS will be extended to support these too. The intention is to have a single environment 
-to develop an interface to your customer.
+With more services popping up, VSMS will be extended to support those too. The idea is to have a single environment 
+to handle all your voice assistant development needs without writing duplicate code.
 
 You are welcome to contribute to this project, and so are your pull requests.
 
-Found a bug or are in need of a missing feature? Please open a new issue and let us know.
- 
+Found a bug or have a feature request? Please open a new issue and let us know.
