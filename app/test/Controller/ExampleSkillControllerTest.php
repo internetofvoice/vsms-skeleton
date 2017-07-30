@@ -13,8 +13,9 @@ class ExampleSkillControllerTest extends ControllerTestCase
 	 * testLaunchRequest
 	 */
 	public function testLaunchRequest() {
-		$header   = json_decode(file_get_contents(__DIR__ . '/../Fixtures/ExampleRequestHeader.json'), true);
-		$body     = file_get_contents(__DIR__ . '/../Fixtures/ExampleRequestBody-Launch.json');
+        $fixture  = json_decode(file_get_contents(__DIR__ . '/../Fixtures/ExampleRequest.json'), true);
+        $header   = $fixture['header'];
+        $body     = json_encode($fixture['body-launch']);
 		$response = $this->runApp('POST', '/skill/example', $header, $body);
 		$this->assertEquals(200, $response->getStatusCode());
 		$this->assertContains('"outputSpeech"', strval($response->getBody()));
@@ -30,8 +31,9 @@ class ExampleSkillControllerTest extends ControllerTestCase
 	 * testHelpIntent
 	 */
 	public function testHelpIntent() {
-        $header   = json_decode(file_get_contents(__DIR__ . '/../Fixtures/ExampleRequestHeader.json'), true);
-        $body     = file_get_contents(__DIR__ . '/../Fixtures/ExampleRequestBody-Help.json');
+        $fixture  = json_decode(file_get_contents(__DIR__ . '/../Fixtures/ExampleRequest.json'), true);
+        $header   = $fixture['header'];
+        $body     = json_encode($fixture['body-help']);
 		$response = $this->runApp('POST', '/skill/example', $header, $body);
 		$this->assertEquals(200, $response->getStatusCode());
 		$this->assertContains('"outputSpeech"', strval($response->getBody()));
@@ -53,8 +55,9 @@ class ExampleSkillControllerTest extends ControllerTestCase
 	 * testStopIntent
 	 */
 	public function testStopIntent() {
-		$header   = json_decode(file_get_contents(__DIR__ . '/../Fixtures/ExampleRequestHeader.json'), true);
-		$body     = file_get_contents(__DIR__ . '/../Fixtures/ExampleRequestBody-Stop.json');
+        $fixture  = json_decode(file_get_contents(__DIR__ . '/../Fixtures/ExampleRequest.json'), true);
+        $header   = $fixture['header'];
+        $body     = json_encode($fixture['body-stop']);
 		$response = $this->runApp('POST', '/skill/example', $header, $body);
 		$this->assertEquals(200, $response->getStatusCode());
 		$this->assertContains('"outputSpeech"', strval($response->getBody()));
@@ -70,8 +73,9 @@ class ExampleSkillControllerTest extends ControllerTestCase
 	 * testCapitalIntent
 	 */
 	public function testCapitalIntent() {
-		$header   = json_decode(file_get_contents(__DIR__ . '/../Fixtures/ExampleRequestHeader.json'), true);
-		$body     = file_get_contents(__DIR__ . '/../Fixtures/ExampleRequestBody-Capital.json');
+        $fixture  = json_decode(file_get_contents(__DIR__ . '/../Fixtures/ExampleRequest.json'), true);
+        $header   = $fixture['header'];
+        $body     = json_encode($fixture['body-capital']);
 		$response = $this->runApp('POST', '/skill/example', $header, $body);
 		$this->assertEquals(200, $response->getStatusCode());
 		$this->assertContains('"outputSpeech"', strval($response->getBody()));
