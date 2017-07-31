@@ -5,6 +5,8 @@
  */
 
 return [
+    "Capitals Skill"
+        => "Hauptstadt-Skill",
     "Welcome to Capitals Skill."
         => "Willkommen beim Hauptstadt-Skill.",
     "Good bye."
@@ -22,13 +24,18 @@ return [
 
     "Please link this skill to your user account in the companion app."
         => "Bitte verknüpfen Sie diesen Skill mit Ihrem Benutzerkonto in der Alexa-App.",
-
-    // @TODO
-    "Allow access to your blood pressure database." => "Zugriff auf Ihr BlutdruckDaten-Konto erlauben.",
-    "Link account" => "Konto verknüpfen",
-    "Login" => "Login",
-    "Password" => "Passwort",
-    "Privacy policy" => "Datenschutzerklärung",
-    "Unknown username or password." => "Benutzername oder Passwort unbekannt.",
-    "User name" => "Benutzername",
+    "Link account"
+        => "Konto verknüpfen",
+    "Allow access to your user account."
+        => "Zugriff auf Ihr Benutzerkonto erlauben.",
+    "Login"
+        => "Login",
+    "User name"
+        => "Benutzername",
+    "Password"
+        => "Passwort",
+    "Unknown username or password."
+        => "Benutzername oder Passwort unbekannt.",
+    "Privacy policy"
+        => "Datenschutzerklärung",
 ];

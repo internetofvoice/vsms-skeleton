@@ -1,0 +1,38 @@
+{#
+    @author  Alexander Schmidt <a.schmidt@internet-of-voice.de>
+#}
+
+{% extends "layout/layout.twig" %}
+
+{% block page_title %}{{ page_title }}{% endblock %}
+
+{% block body %}
+<div class="container app-container">
+    <div class="page-header">
+        <h1>{{ page_title }} <span class="text-muted">{{ skill_name }}</span></h1>
+        <div>{{ translator.t('Allow access to your user account.') }}</div>
+    </div>
+
+    {% if errors|length > 0 %}
+        <p class="alert alert-danger">{{ translator.t('Unknown username or password.') }}</p>
+    {% endif %}
+
+    <form class="login-form" method="post" action="{{ uri }}">
+    {% for name, value in hidden %}
+        <input type="hidden" name="{{ name }}" value="{{ value }}">
+    {% endfor %}
+
+        <div class="form-group required{{ errors|length ? ' error' : '' }}">
+            <label class="control-label" for="username">{{ translator.t('User name') }}</label>
+            <input class="form-control" id="username" name="username" value="{{ username }}" required>
+        </div>
+
+        <div class="form-group required{{ errors|length ? ' error' : '' }}">
+            <label class="control-label" for="password">{{ translator.t('Password') }}</label>
+            <input type="password" class="form-control" id="password" name="password" value="" required>
+        </div>
+
+        <button class="btn btn-primary">{{ translator.t('Login') }}</button>
+    </form>
+</div>
+{% endblock %}

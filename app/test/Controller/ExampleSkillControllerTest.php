@@ -16,7 +16,7 @@ class ExampleSkillControllerTest extends ControllerTestCase
         $fixture  = json_decode(file_get_contents(__DIR__ . '/../Fixtures/ExampleRequest.json'), true);
         $header   = $fixture['header'];
         $body     = json_encode($fixture['body-launch']);
-		$response = $this->runApp('POST', '/skill/example', $header, $body);
+		$response = $this->runApp('POST', '/example/skill', $header, $body);
 		$this->assertEquals(200, $response->getStatusCode());
 		$this->assertContains('"outputSpeech"', strval($response->getBody()));
 
@@ -34,7 +34,7 @@ class ExampleSkillControllerTest extends ControllerTestCase
         $fixture  = json_decode(file_get_contents(__DIR__ . '/../Fixtures/ExampleRequest.json'), true);
         $header   = $fixture['header'];
         $body     = json_encode($fixture['body-help']);
-		$response = $this->runApp('POST', '/skill/example', $header, $body);
+		$response = $this->runApp('POST', '/example/skill', $header, $body);
 		$this->assertEquals(200, $response->getStatusCode());
 		$this->assertContains('"outputSpeech"', strval($response->getBody()));
 
@@ -58,7 +58,7 @@ class ExampleSkillControllerTest extends ControllerTestCase
         $fixture  = json_decode(file_get_contents(__DIR__ . '/../Fixtures/ExampleRequest.json'), true);
         $header   = $fixture['header'];
         $body     = json_encode($fixture['body-stop']);
-		$response = $this->runApp('POST', '/skill/example', $header, $body);
+		$response = $this->runApp('POST', '/example/skill', $header, $body);
 		$this->assertEquals(200, $response->getStatusCode());
 		$this->assertContains('"outputSpeech"', strval($response->getBody()));
 
@@ -76,7 +76,7 @@ class ExampleSkillControllerTest extends ControllerTestCase
         $fixture  = json_decode(file_get_contents(__DIR__ . '/../Fixtures/ExampleRequest.json'), true);
         $header   = $fixture['header'];
         $body     = json_encode($fixture['body-capital']);
-		$response = $this->runApp('POST', '/skill/example', $header, $body);
+		$response = $this->runApp('POST', '/example/skill', $header, $body);
 		$this->assertEquals(200, $response->getStatusCode());
 		$this->assertContains('"outputSpeech"', strval($response->getBody()));
 

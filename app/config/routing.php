@@ -7,10 +7,9 @@
  */
 
 /* Skills */
-$app->post('/skill/example', \Acme\Skill\Controller\ExampleSkillController::class);
-// @TODO
-//$app->any('/link-account/example', \Acme\Skill\Controller\ExampleLinkController::class);
-//$app->get('/privacy/example', \Acme\Skill\Controller\ExampleLinkController::class . ':privacy');
+$app->post('/example/skill', \Acme\Skill\Controller\ExampleSkillController::class);
+$app->any('/example/link', \Acme\Skill\Controller\ExampleLinkController::class);
+$app->get('/example/privacy', \Acme\Skill\Controller\ExampleLinkController::class . ':privacy');
 
 /* Home */
 $app->get('/', \Acme\Skill\Controller\HomeController::class . ':home');
