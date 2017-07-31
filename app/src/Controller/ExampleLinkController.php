@@ -39,8 +39,13 @@ final class ExampleLinkController extends AbstractLinkController
     public function __invoke($request, $response) {
         $this->logger->logRequest($request);
 
-        // Get all parameters
-        $parameters = $this->validateRequestParameters($request, 'example');
+        try {
+            $parameters = $this->validateRequestParameters($request, 'example');
+        } catch (\Exception $e) {
+            $notFoundHandler = $this->container->get('notFoundHandler');
+            return $notFoundHandler($request, $response);
+        }
+
         $username   = '';
         $password   = '';
         $errors     = array();
