@@ -31,12 +31,12 @@
         },
         {
             "type": "vcs",
-            "url": "https://github.com/anschluss80/amazon-alexa-php"
+            "url": "https://github.com/internetofvoice/amazon-alexa-php"
         }
     ],
     "require": {
         "php": ">=5.5.0",
-        "jakubsuchy/amazon-alexa-php": "dev-master",
+        "internetofvoice/amazon-alexa-php": "dev-master",
         "internetofvoice/vsms-core": "dev-develop",
         "slim/twig-view": "^2.2",
         "analog/analog": "dev-master"
