@@ -50,6 +50,8 @@
         }
     },
     "scripts": {
-        "test": "vendor/bin/phpunit"
+        "test": "vendor/bin/phpunit",
+        "test-controller": "vendor/bin/phpunit --testsuite controller",
+        "test-service": "vendor/bin/phpunit --testsuite service"
     }
 }
