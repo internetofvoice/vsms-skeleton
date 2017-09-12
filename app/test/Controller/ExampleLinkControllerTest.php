@@ -10,6 +10,9 @@ namespace Tests\Controller;
 
 class ExampleLinkControllerTest extends ControllerTestCase
 {
+	const LINK_BASE_URL = '/example/link';
+	const PRIV_BASE_URL = '/example/privacy';
+
 	/**
 	 * testInvocation
 	 */
@@ -35,7 +38,7 @@ class ExampleLinkControllerTest extends ControllerTestCase
             'HTTP_ACCEPT_LANGUAGE' => 'de-DE,de;q=0.8,en-GB;q=0.5,en;q=0.3'
         ];
 
-        $response = $this->runApp('POST', '/example/link', $headers, json_encode($fixture['submission']));
+        $response = $this->runApp('POST', self::LINK_BASE_URL, $headers, json_encode($fixture['submission']));
         $temp     = $response->getHeader('Location');
         $location = count($temp) ? array_shift($temp) : false;
 
@@ -52,7 +55,7 @@ class ExampleLinkControllerTest extends ControllerTestCase
             'HTTP_ACCEPT_LANGUAGE' => 'de-DE,de;q=0.8,en-GB;q=0.5,en;q=0.3'
         ];
 
-        $response = $this->runApp('GET', '/example/privacy', $headers);
+        $response = $this->runApp('GET', self::PRIV_BASE_URL, $headers);
         $this->assertEquals(200, $response->getStatusCode());
         $this->assertContains('Hauptstadt-Skill', (string)$response->getBody());
     }
