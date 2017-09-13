@@ -8,19 +8,20 @@ skill development by incorporating boilerplate code into a framework. VSMS is pr
 well as serving HTML content. It can handle internationalisation and supports multiple environments (by means of
 dev, test, stage and prod). 
 
-VSMS is written in PHP and comes with Slim application framework, Twig template engine, Analog logger und PHPUnit  
-(see "Libraries" section), but you are free to choose dependencies and a project structure as you see fit. 
+VSMS is written in PHP and comes, amongst others, with Slim application framework, Twig template engine, Analog 
+logger and PHPUnit (also see "Libraries" section), but you are totally free to choose dependencies and a project 
+structure as you see fit. 
 
 ## Requirements
 * PHP (at least 5.6.0)
 * SSL-enabled web server 
 * [composer](https://getcomposer.org/download/)
 * [Amazon Developer Account](https://developer.amazon.com/)
-* Amazon Alexa Client options:
+* Amazon Alexa Client, your options include:
     - [Android App](https://play.google.com/store/apps/details?id=com.amazon.dee.app) 
     - [iOS App](https://itunes.apple.com/de/app/amazon-echo/id944011620)
     - [Web based](https://alexa.amazon.com/spa/)
-* Alexa-enabled device options:
+* Alexa-enabled device, your options include:
     - Hardware device like Echo, Echo Dot or similar products
     - Software service like [Reverb](https://reverb.ai/) or [Echosim](https://echosim.io/)
 
@@ -73,11 +74,11 @@ examples for a kick start.
 Services provide backend functionality, like interactions with third party APIs that your skill can query data from.
 
 ### Templates
-Templates help you to produce HTML output which might be needed for Amazon's account linking feature, 
+Templates help you to produce HTML output which is needed for Amazon's account linking feature, 
 displaying your privacy policy page or some neat marketing web pages.
 
 ### Translation
-If you need multiple language support four your skill or your HTML pages, place your translations here.
+If you need multiple language support four your skill or some HTML pages, place your translations here.
 
 ### Tests
 Unit tests are preconfigured to work with PHPUnit. Example tests are included, so you can throw in your own tests quickly.
@@ -87,14 +88,13 @@ Log files, rendered template files and other variable data goes here.
 
 ### Assets 
 Place your frontend files (CSS, JavaScript, images, ...) here as this directory is web-accessible – in contrary to 
-the `app/` directory, which is forbidden. You may need this for styling HTML output. You'll find a copy of 
-[Bootstrap](http://getbootstrap.com/) here, which is used to generate a neat login page for Amazon's account
-linking feature.  
+the `/app` directory, which is forbidden. You'll find a copy of the [Bootstrap Library](http://getbootstrap.com/) 
+here, which is used to generate a responsive login page for Amazon's account linking feature.  
 
 ## Setup
 ### Server
 - Setup an SSL-enabled web server / virtual host with PHP (5.6.0 or newer)
-- A secure tunneling service like https://ngrok.com might be useful to expose your machine to an HTTPS accessible URL.
+- A secure tunneling service like https://ngrok.com might be useful to expose your machine to an HTTPS accessible URL
 - Install VSMS as described in the "Installation" section above 
 
 ### Environments
@@ -108,7 +108,7 @@ want to use this feature, put the environment variable `APP_ENV` in your web ser
  (...)
 </VirtualHost>
 ```
-*and*, for using PHPUnit tests, in your shell as tests will not use your web server. For example in `~/.bashrc` do:
+*and*, for using PHPUnit tests, in your shell as tests will not use a web server. For example in `~/.bashrc` do:
 ```bash 
 export APP_ENV="dev"
 ```
@@ -116,15 +116,15 @@ export APP_ENV="dev"
 When doing so, you may set different configurations in `app/config/settings.php` and separate Skill IDs in your
 skill controller(s) for every environment. When an environment is not set, it defaults to `prod`.
 
-Using environments enables you for instance to skip request certificate validation (see `app/config/settings.php`) 
-and thus to send fake requests to your app. Please do not disable the validation in your production version, as it is 
-is mandatory per Amazons requirements - please see 
+Environments enable you for instance to skip request certificate validation (see `app/config/settings.php`) 
+and thus to send fake / test requests to your app. Please do *not* disable the validation in your production version, 
+as it is mandatory - please see 
 [Alexa Skills Kit Documentation](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/developing-an-alexa-skill-as-a-web-service#verifying-that-the-request-was-sent-by-alexa).
 
 
 ## Example content
-VSMS comes with an example skill, a privacy policy page and a login form for account linking. HTML pages can be 
-examined with a browser, whereas skills require a specific constructed request that you can fake with a tool like 
+VSMS comes with an example skill, a privacy policy page and a login form for account linking. While HTML pages can be 
+examined with a browser, skills require a specific constructed request that you can fake with a tool like 
 [Postman](https://www.getpostman.com/) (also available as a Chrome extension). Another option is to use the Service
 Simulator you will find on https://developer.amazon.com/ when setting up your skill. 
 
@@ -139,6 +139,7 @@ to Postman and tweak it to your needs - at least change request url and applicat
 match your environment.   
 
 ### Running tests
+Composer.json is preconfigured with some scripts to invoke PHPUnit tests:
 ```bash
 $ cd /app 
 $ composer test 
@@ -149,19 +150,18 @@ $ composer test
 - Go to Alexa > Alexa Skills Kit https://developer.amazon.com/edw/home.html#/skills
 - Add a new skill 
 - Fill in the requested fields
-- Copy your application ID (amzn1.ask.skill.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx) and put it into your skill 
-controller (and fake requests, ...) 
+- Copy your application ID and paste it into your skill controller, test fixtures and fake requests 
 - Make your skill accessible via HTTPS by uploading it to a server or using a service like ngrok
 - Put the resulting skill URL into the skill configuration at Alexa Skills Kit   
 - Test your skill with the Service Simulator provided by Amazon 
-- Test your skill with an Echo device or the Reverb app to hear Alexa finally talking!  
+- Test your skill with an Echo device or the Reverb app to finally hear Alexa talking  
 
 ### Submitting a skill for certification
-Please test your skill thoroughly and carefully read the 
-[Amazons Certification Requirements](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/alexa-skills-kit-submission-checklist)
-to ensure the best experience for your skill's end users. 
+Please test your skill thoroughly and carefully read
+[Amazon's Certification Requirements](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/alexa-skills-kit-submission-checklist)
+to ensure the best experience for your end users. 
 
-**Please do not submit the example skill for certification!**   
+**Please do not submit the example skill for certification.**   
 
 ## What's next?
 VSMS aims to interact with multiple voice assistant systems, so it's not only nailed down to Amazon Voice Service. 
