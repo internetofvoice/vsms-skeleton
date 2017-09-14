@@ -164,6 +164,10 @@ the skill configuration in ASK. After that, you find an intent schema and sample
 named *My_Country* with the values that are contained in this directory. For the english skill, a preconfigured 
 slot type provided by Amazon is used.
 
+As the skill demonstrates the account linking feature, you need to configure account linking with *implicit
+grant* and provide *authorization* and *privacy policy* URLs (see `/app/config/routing.php`). 
+
+
 ### Submit a skill for certification
 Please test your skill thoroughly and step through
 [Amazon's Certification Requirements](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/alexa-skills-kit-submission-checklist)
