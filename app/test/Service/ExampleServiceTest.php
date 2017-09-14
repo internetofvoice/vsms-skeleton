@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Custom\Service;
+namespace Tests\Service;
 
 use Acme\Skill\Service\ExampleService;
 
