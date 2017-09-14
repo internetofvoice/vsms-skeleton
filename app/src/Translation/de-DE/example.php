@@ -11,6 +11,8 @@ return [
         => "Willkommen beim Hauptstadt-Skill.",
     "Good bye."
         => "Auf Wiedersehen.",
+    "Please ask another question or say stop."
+	    => "Bitte fragen Sie weiter oder sagen Sie Stop.",
     "Help"
         => "Hilfe",
     "If you need help, please say help."
