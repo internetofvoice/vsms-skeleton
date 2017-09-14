@@ -22,7 +22,7 @@ class ExampleLinkControllerTest extends ControllerTestCase
             'HTTP_ACCEPT_LANGUAGE' => 'de-DE,de;q=0.8,en-GB;q=0.5,en;q=0.3'
         ];
 
-        $url = '/example/link?' . http_build_query($fixture['invocation']);
+        $url = self::LINK_BASE_URL . '?' . http_build_query($fixture['invocation']);
 
         $response = $this->runApp('GET', $url, $headers);
         $this->assertEquals(200, $response->getStatusCode());
