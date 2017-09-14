@@ -165,7 +165,8 @@ named *My_Country* with the values that are contained in this directory. For the
 slot type provided by Amazon is used.
 
 As the skill demonstrates the account linking feature, you need to configure account linking with *implicit
-grant* and provide *authorization* and *privacy policy* URLs (see `/app/config/routing.php`). 
+grant* and provide *authorization* and *privacy policy* URLs (see `/app/config/routing.php`). When using the skill
+and being asked to login for account linking, use the super secret credentials "test"/"test".
 
 
 ### Submit a skill for certification
