@@ -1,0 +1,4 @@
+CapitalIntent Was ist die Hauptstadt von {country}
+CapitalIntent Was die Hauptstadt von {country} ist
+CapitalIntent Wie heißt die Hauptstadt von {country}
+CapitalIntent Wie die Hauptstadt von {country} heißt
