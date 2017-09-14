@@ -5,17 +5,15 @@
 ## Introduction
 VSMS is a skill development framework for voice assistants such as Amazon Voice Service. The intention is to speed up 
 skill development by incorporating boilerplate code into a framework. VSMS is preconfigured to run multiple skills as 
-well as serving HTML content. It can handle internationalisation and supports multiple environments (by means of
-dev, test, stage and prod). 
+well as serving HTML content. It can handle internationalisation and supports multiple server environments.
 
-VSMS is written in PHP and comes, amongst others, with Slim application framework, Twig template engine, Analog 
-logger and PHPUnit (also see "Libraries" section), but you are totally free to choose dependencies and a project 
-structure as you see fit. 
+VSMS is written in PHP and comes with Slim application framework, Twig template engine, Analog logger and PHPUnit
+(see "Libraries" section for more), but you are free to choose dependencies and a project structure as you see fit. 
 
 ## Requirements
 * PHP (at least 5.6.0)
 * SSL-enabled web server 
-* [composer](https://getcomposer.org/download/)
+* [composer](https://getcomposer.org/)
 * [Amazon Developer Account](https://developer.amazon.com/)
 * Amazon Alexa Client, your options include:
     - [Android App](https://play.google.com/store/apps/details?id=com.amazon.dee.app) 
@@ -74,22 +72,23 @@ examples for a kick start.
 Services provide backend functionality, like interactions with third party APIs that your skill can query data from.
 
 ### Templates
-Templates help you to produce HTML output which is needed for Amazon's account linking feature, 
-displaying your privacy policy page or some neat marketing web pages.
+Templates help you to produce HTML output which is needed for Amazon's account linking feature, displaying a privacy
+policy page or some neat marketing web pages.
 
 ### Translation
-If you need multiple language support four your skill or some HTML pages, place your translations here.
+If you need multiple language support, place your translations here.
 
 ### Tests
-Unit tests are preconfigured to work with PHPUnit. Example tests are included, so you can throw in your own tests quickly.
+Unit tests are preconfigured to work with PHPUnit. Examples are included, so you can throw in your own tests quickly.
 
-### Variable files
-Log files, rendered template files and other variable data goes here.
+### Var
+Variable data, like log files or rendered template files, go in here.
 
 ### Assets 
 Place your frontend files (CSS, JavaScript, images, ...) here as this directory is web-accessible – in contrary to 
-the `/app` directory, which is forbidden. You'll find a copy of the [Bootstrap Library](http://getbootstrap.com/) 
-here, which is used to generate a responsive login page for Amazon's account linking feature.  
+the `/app` directory, to which direct access is forbidden. You'll find a copy of the
+[Bootstrap Library](http://getbootstrap.com/) here, which is used to generate a responsive login page for
+Amazon's account linking feature.  
 
 ## Setup
 ### Server
@@ -98,26 +97,28 @@ here, which is used to generate a responsive login page for Amazon's account lin
 - Install VSMS as described in the "Installation" section above 
 
 ### Environments
-VSMS supports multiple environments like `dev`, `test`, `stage` and `prod` with the latter being the default. If you
-want to use this feature, put the environment variable `APP_ENV` in your web server's virtual host configuration
-(Apache example):
+VSMS supports multiple environments like *dev*, *test*, *stage* and *prod* with the latter being the default. If you
+want to use this feature, put an environment variable `APP_ENV` in your web server's virtual host configuration
+and in your shell as test requests will not involve the web server.
+
+Apache example:
 ```apacheconf   
 <VirtualHost *:80>
  ServerName  my-skills.example.com
- SetEnv      APP_ENV dev
  (...)
+ SetEnv      APP_ENV dev
 </VirtualHost>
 ```
-*and*, for using PHPUnit tests, in your shell as tests will not use a web server. For example in `~/.bashrc` do:
+.bashrc example:
 ```bash 
 export APP_ENV="dev"
 ```
 
-When doing so, you may set different configurations in `app/config/settings.php` and separate Skill IDs in your
-skill controller(s) for every environment. When an environment is not set, it defaults to `prod`.
+When doing so, you may set environment dependent configurations in `/app/config/settings.php` and Skill IDs in your
+skill controller(s). If you do not want to use this feature, set your configurations for the default *prod*.
 
-Environments enable you for instance to skip request certificate validation (see `app/config/settings.php`) 
-and thus to send fake / test requests to your app. Please do *not* disable the validation in your production version, 
+Environments enable you for instance to skip request certificate validation (see `/app/config/settings.php`) 
+and thus to send test / fake requests to your app. Please do *not* disable the validation in your production version, 
 as it is mandatory - please see 
 [Alexa Skills Kit Documentation](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/developing-an-alexa-skill-as-a-web-service#verifying-that-the-request-was-sent-by-alexa).
 
@@ -133,10 +134,9 @@ The pre-configured URIs are:
 - Privacy policy: http(s)://your-hostname/example/privacy
 - Account linking login form: http(s)://your-hostname/example/link
 
-### Faking a skill request with Postman
+### Sending skill requests using Postman
 Please find an example collection for Postman in `/app/test/Fixtures/Example.postman_collection.json`, import it 
-to Postman and tweak it to your needs - at least change request url and applicationId in the request body to
-match your environment.   
+to Postman and tweak it to your needs - at least the request url and applicationId need to match your setup.
 
 ### Running tests
 Composer.json is preconfigured with some scripts to invoke PHPUnit tests:
@@ -145,26 +145,27 @@ $ cd /app
 $ composer test 
 ```
  
-## Connecting the example skill with Amazon
-- Create an account at or login to https://developer.amazon.com
+## Setup a skill with Amazon
+- Login to https://developer.amazon.com
 - Go to Alexa > Alexa Skills Kit https://developer.amazon.com/edw/home.html#/skills
 - Add a new skill 
 - Fill in the requested fields
-- Copy your application ID and paste it into your skill controller, test fixtures and fake requests 
+- Copy the application ID and paste it into your skill controller, test fixtures and fake requests 
 - Make your skill accessible via HTTPS by uploading it to a server or using a service like ngrok
-- Put the resulting skill URL into the skill configuration at Alexa Skills Kit   
-- Test your skill with the Service Simulator provided by Amazon 
-- Test your skill with an Echo device or the Reverb app to finally hear Alexa talking  
+- Put your skill URL (see `/app/config/routing.php`) into the skill configuration at Alexa Skills Kit   
+- Test your skill with the Service Simulator provided by Amazon, with an Echo device or the Reverb app
 
-### Submitting a skill for certification
-Please test your skill thoroughly and carefully read
+If something goes wrong, check Amazons Service Simulator and the application log.
+
+### Submit a skill for certification
+Please test your skill thoroughly and step through
 [Amazon's Certification Requirements](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/alexa-skills-kit-submission-checklist)
-to ensure the best experience for your end users. 
+carefully to ensure the best experience for your end users and to improve the chance to get your skill certified.
 
 **Please do not submit the example skill for certification.**   
 
 ## What's next?
-VSMS aims to interact with multiple voice assistant systems, so it's not only nailed down to Amazon Voice Service. 
+VSMS aims to interact with multiple voice assistant systems, so it's not only nailed down to Alexa Skills Kit. 
 With more services popping up, VSMS will be extended to support those too. The idea is to have a single environment 
 to handle all your voice assistant development needs without writing duplicate code.
 
