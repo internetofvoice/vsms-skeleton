@@ -26,13 +26,13 @@ VSMS is written in PHP and comes with Slim application framework, Twig template 
 ## Installation
 
 1. Create a new project (*my-skills* in this example)
-2. Change to the created directory
+2. Change to the `app` directory of *my-skills* 
 3. Install dependencies
    
 ```
 $ composer create-project internetofvoice/vsms-skeleton my-skills 
-$ cd my-skills
-$ oomposer install
+$ cd my-skills/app
+$ composer install
 ```
 
 ## Outline
