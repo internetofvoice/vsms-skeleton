@@ -1,0 +1,20 @@
+{#
+    @author  Alexander Schmidt <a.schmidt@internet-of-voice.de>
+#}
+
+{% extends "layout/layout.twig" %}
+
+{% block page_title %}{{ page_title }}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="page-header">
+            <h1>{{ page_title }} <span class="text-muted">{{ skill_name }}</span></h1>
+        </div>
+
+        <h3>({{ translator.t('Privacy policy') }}...)</h3>
+        <p>
+            ({{ translator.t('Privacy policy') }}...)
+        </p>
+    </div>
+{% endblock %}

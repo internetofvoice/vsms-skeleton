@@ -1,0 +1,5 @@
+*.session
+app/var/log/*
+app/var/rendered/*
+app/vendor
+!.gitkeep

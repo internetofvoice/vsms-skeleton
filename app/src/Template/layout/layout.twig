@@ -1,0 +1,40 @@
+{#
+    @author  Alexander Schmidt <a.schmidt@internet-of-voice.de>
+#}
+<!DOCTYPE html>
+<html lang="{{ translator.getLanguage() }}">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{{ page_title }}</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta property="og:title" content="">
+	<meta property="og:site_name" content="">
+	<meta property="og:image" content="">
+	<meta property="og:url" content="">
+	<meta property="og:description" content="">
+	<meta property="og:type" content="">
+	<meta property="og:locale" content="">
+	<meta name="robots" content="index,follow">
+	<meta name="author" content="Alexander Schmidt">
+	<meta name="copyright" content="Internet of Voice">
+	<link rel="apple-touch-icon" sizes="180x180" href="{{ settings.asset_root }}/img/icon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" href="{{ settings.asset_root }}/img/icon/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="{{ settings.asset_root }}/img/icon/favicon-16x16.png" sizes="16x16">
+	<link rel="manifest" href="{{ settings.asset_root }}/img/icon/manifest.json">
+	<link rel="mask-icon" href="{{ settings.asset_root }}/img/icon/safari-pinned-tab.svg">
+	<link rel="shortcut icon" href="{{ settings.asset_root }}/img/icon/favicon.ico">
+	<meta name="msapplication-config" content="{{ settings.asset_root }}/img/icon/browserconfig.xml">
+	<meta name="theme-color" content="#ffffff">
+	<link rel="stylesheet" type="text/css" href="{{ settings.asset_root }}/vendor/bootstrap-3.3.7-custom/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="{{ settings.asset_root }}/css/fonts.css">
+	<link rel="stylesheet" type="text/css" href="{{ settings.asset_root }}/css/main.css">
+</head>
+<body>
+{% block body %}
+	<h1>Default Layout</h1>
+{% endblock %}
+</body>
+</html>

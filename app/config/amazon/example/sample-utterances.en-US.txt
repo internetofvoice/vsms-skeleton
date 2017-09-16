@@ -1,0 +1,2 @@
+CapitalIntent What is the capital of {country}
+CapitalIntent What the capital of {country} is

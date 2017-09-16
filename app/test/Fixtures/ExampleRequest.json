@@ -1,0 +1,103 @@
+{
+    "header": {
+        "HTTP_SIGNATURE": "CeUFTfYHHlSrS+8kQCFvVx0tP8qVVynWaNJv6BSkmVcf7knnYfh1GuXORApzWEA7sw9Y8x3l9tf87qn\/lKgJJ4sJNwgqWU2y0ODNsw3TX9dOmnnDWLLEpKIIoMxpsdPJ+MvbSGiX2e0JAqoYRQ\/hAfmGEBdoLik\/52hSvDN6SKiCXrCjhxvCz3ET+A174Xfa6kxxn0RM9V+XEiZzoD2HLwPB0ciOMByQ1DtxHTBdqTHaN1+Azrwdka2iUjkTo\/V\/bb\/UTaISLDmZneg97\/xMB2mMBJYW4LxX0WLJSyg1mDb6dnaL57qvS6MjfD2DfLc9osAEXzAEuDmYjMVuDkYAqw==",
+        "HTTP_SIGNATURECERTCHAINURL": "https:\/\/s3.amazonaws.com\/echo.api\/echo-api-cert-4.pem"
+    },
+    "body-launch": {
+        "session": {
+            "sessionId": "SessionId.bd8142b7-7ff9-4524-8d09-aa85a47fa32c",
+            "application": {
+                "applicationId": "amzn1.ask.skill.b5ec8cfa-d9e5-40c9-8325-c56927a2e42b"
+            },
+            "attributes": {},
+            "user": {
+                "userId": "amzn1.ask.account.AGQLHMHXL6OIPCT7TMLGP4IXXAE743JJI7QUG7I75UAKM36U5BPF2N3M6H4YHLQ6AZYO6XQS3HAY2WD6NY37DOKJXNRMAPPI2RXZXDEBFFOBEGIEYF3HYX4O3HVODJ2TSDJ2EFWLWYMAVPWCYXY3WGROHEYHX6B2FL7PKDEBPL467RIXMWHPNRNJ4OZTSVA3CVN2AY6QXUJIT3I"
+            },
+            "new": true
+        },
+        "request": {
+            "type": "LaunchRequest",
+            "requestId": "EdwRequestId.b1b0153d-76b6-4e6f-b920-f158804ba9f0",
+            "locale": "en-US",
+            "timestamp": "2017-02-12T15:40:08Z"
+        },
+        "version": "1.0"
+    },
+    "body-help": {
+        "session": {
+            "sessionId": "SessionId.a880afe7-8cce-4e72-b168-cee4e8ce5c9b",
+            "application": {
+                "applicationId": "amzn1.ask.skill.b5ec8cfa-d9e5-40c9-8325-c56927a2e42b"
+            },
+            "attributes": {},
+            "user": {
+                "userId": "amzn1.ask.account.AGJC6VHUBORSVSH7JDV6HECNRFASFSNF37WX5TLDOWOLZITW5OTL6K4UFVTAJTXRRF73BTFTJL4O2GPWU5CVDIICUOOLL7VWRLOCS4R3ODD6ZKW7XFIG7IRF23G47Z7ZE4LZBXA6RPEXDQ2EEHV2YQY2Y2VACS2237CSNZUE2CCLREQPBDCTK7EPLKQ6V2VT6Z3Y7YKVGZ4J5CI"
+            },
+            "new": true
+        },
+        "request": {
+            "type": "IntentRequest",
+            "requestId": "EdwRequestId.679fdfe8-4faa-4359-a2c8-2995d131f993",
+            "locale": "en-US",
+            "timestamp": "2017-02-07T19:52:55Z",
+            "intent": {
+                "name": "AMAZON.HelpIntent",
+                "slots": {}
+            }
+        },
+        "version": "1.0"
+    },
+    "body-stop": {
+        "session": {
+            "sessionId": "SessionId.bd8142b7-7ff9-4524-8d09-aa85a47fa32c",
+            "application": {
+                "applicationId": "amzn1.ask.skill.b5ec8cfa-d9e5-40c9-8325-c56927a2e42b"
+            },
+            "attributes": {},
+            "user": {
+                "userId": "amzn1.ask.account.AGQLHMHXL6OIPCT7TMLGP4IXXAE743JJI7QUG7I75UAKM36U5BPF2N3M6H4YHLQ6AZYO6XQS3HAY2WD6NY37DOKJXNRMAPPI2RXZXDEBFFOBEGIEYF3HYX4O3HVODJ2TSDJ2EFWLWYMAVPWCYXY3WGROHEYHX6B2FL7PKDEBPL467RIXMWHPNRNJ4OZTSVA3CVN2AY6QXUJIT3I"
+            },
+            "new": true
+        },
+        "request": {
+            "type": "IntentRequest",
+            "requestId": "EdwRequestId.b1b0153d-76b6-4e6f-b920-f158804ba9f0",
+            "locale": "en-US",
+            "timestamp": "2017-02-12T15:40:08Z",
+            "intent": {
+                "name": "AMAZON.StopIntent",
+                "slots": {}
+            }
+        },
+        "version": "1.0"
+    },
+    "body-capital": {
+        "session": {
+            "sessionId": "SessionId.5ac168d3-5d2e-4857-a883-62160a0cf7ed",
+            "application": {
+                "applicationId": "amzn1.ask.skill.b5ec8cfa-d9e5-40c9-8325-c56927a2e42b"
+            },
+            "attributes": {},
+            "user": {
+                "userId": "amzn1.ask.account.AHVUS5TRQR7FQAPE4OHM73CLMJIQ5222O7CQG62X2JHUHZTU5O3XVJORHXFVK4TAGZUJXI3D2PHPBB5IYH2N2PJRHVEWGNSDGGWHAPP2RVKHX2PL5GRCW2U4APTAYKYURI73IL3SJ2O3ACSTJYKQILG3ZUAKZ7A4WBRRGZLKDZCPV3X4LYDMPLO7X7JGIZUNJ6HOFSQYHY4BYNA"
+            },
+            "new": true
+        },
+        "request": {
+            "type": "IntentRequest",
+            "requestId": "EdwRequestId.fa1f8d71-c426-4a95-93ad-b513f879a59e",
+            "locale": "en-US",
+            "timestamp": "2017-04-02T16:24:10Z",
+            "intent": {
+                "name": "CapitalIntent",
+                "slots": {
+                    "country": {
+                        "name": "country",
+                        "value": "France"
+                    }
+                }
+            }
+        },
+        "version": "1.0"
+    }
+}

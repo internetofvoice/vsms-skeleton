@@ -1,0 +1,40 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Example Skill",
+		"description": "Fake request for example skill",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Help",
+			"request": {
+				"url": "http://your-host/example/skill",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json;charset=UTF-8",
+						"description": ""
+					},
+					{
+						"key": "Signature",
+						"value": "CeUFTfYHHlSrS+8kQCFvVx0tP8qVVynWaNJv6BSkmVcf7knnYfh1GuXORApzWEA7sw9Y8x3l9tf87qn/lKgJJ4sJNwgqWU2y0ODNsw3TX9dOmnnDWLLEpKIIoMxpsdPJ+MvbSGiX2e0JAqoYRQ/hAfmGEBdoLik/52hSvDN6SKiCXrCjhxvCz3ET+A174Xfa6kxxn0RM9V+XEiZzoD2HLwPB0ciOMByQ1DtxHTBdqTHaN1+Azrwdka2iUjkTo/V/bb/UTaISLDmZneg97/xMB2mMBJYW4LxX0WLJSyg1mDb6dnaL57qvS6MjfD2DfLc9osAEXzAEuDmYjMVuDkYAqw==",
+						"description": ""
+					},
+					{
+						"key": "SignatureCertChainUrl",
+						"value": "https://s3.amazonaws.com/echo.api/echo-api-cert-4.pem",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"session\": {\r\n    \"sessionId\": \"SessionId.1234567890\",\r\n    \"application\": {\r\n      \"applicationId\": \"amzn1.ask.skill.your-skill-id\"\r\n    },\r\n    \"attributes\": {},\r\n    \"user\": {\r\n      \"userId\": \"amzn1.ask.account.1234567890\",\r\n\t  \"accessToken\":\"SecretAccessToken\"\r\n    },\r\n    \"new\": true\r\n  },\r\n  \"request\": {\r\n    \"type\": \"IntentRequest\",\r\n    \"requestId\": \"EdwRequestId.1234567890\",\r\n    \"locale\": \"de-DE\",\r\n    \"timestamp\": \"2017-09-09T09:09:09Z\",\r\n    \"intent\": {\r\n      \"name\": \"AMAZON.HelpIntent\",\r\n      \"slots\": {}\r\n    }\r\n  },\r\n  \"version\": \"1.0\"\r\n}\r\n"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

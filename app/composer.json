@@ -1,0 +1,51 @@
+{
+    "name": "internetofvoice/vsms-skeleton",
+    "description": "VSMS - a voice skill management system for voice assistant skills.",
+    "license": "MIT",
+    "type": "project",
+    "homepage": "http://www.internet-of-voice.de",
+    "authors": [
+        {
+            "name": "Alexander Schmidt",
+            "email": "a.schmidt@internet-of-voice.de",
+            "homepage": "http://www.internet-of-voice.de",
+            "role": "Developer"
+        },
+        {
+            "name": "Robert C. Mendez",
+            "email": "rcm@internet-of-voice.de",
+            "homepage": "http://www.internet-of-voice.de",
+            "role": "Management"
+        },
+        {
+            "name": "Marius Wolf",
+            "email": "m.wolf@internet-of-voice.de",
+            "homepage": "http://www.internet-of-voice.de",
+            "role": "Management"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.0",
+        "internetofvoice/vsms-core": "^1.0",
+        "slim/twig-view": "^2.2",
+        "analog/analog": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": ">=5.7 < 6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Acme\\Skill\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "test"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-controller": "vendor/bin/phpunit --testsuite controller",
+        "test-service": "vendor/bin/phpunit --testsuite service"
+    }
+}

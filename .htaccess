@@ -1,0 +1,14 @@
+# App routing
+RewriteEngine	On
+RewriteCond		%{REQUEST_FILENAME} !-f
+RewriteCond		%{REQUEST_FILENAME} !-d
+RewriteRule		^ /index.php [QSA,L]
+
+# Set CORS for images as required by Amazon (i.e. images for AVS response cards)
+# see https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/providing-home-cards-for-the-amazon-alexa-app#image_hosting
+<FilesMatch 	"\.(gif|jpe?g|png|svg|ico)$">
+    <IfModule   mod_headers.c>
+     SetEnvIf   Origin "http(s)?://(www\.)?(ask-ifr-download.s3.amazonaws.com|example.com)$" AccessControlAllowOrigin=$0
+     Header     add Access-Control-Allow-Origin %{AccessControlAllowOrigin}e env=AccessControlAllowOrigin
+    </IfModule>
+</FilesMatch>
