@@ -24,8 +24,15 @@ VSMS is written in PHP and comes with Slim application framework, Twig template 
     - Software service like [Reverb](https://reverb.ai/) or [Echosim](https://echosim.io/)
 
 ## Installation
+
+1. Create a new project (*my-skills* in this example)
+2. Change to the created directory
+3. Install dependencies
+   
 ```
 $ composer create-project internetofvoice/vsms-skeleton my-skills 
+$ cd my-skills
+$ oomposer install
 ```
 
 ## Outline
