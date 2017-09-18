@@ -383,27 +383,31 @@
   },
   "css": [
     "type.less",
+    "code.less",
     "grid.less",
+    "tables.less",
     "forms.less",
     "buttons.less",
     "responsive-utilities.less",
     "button-groups.less",
     "input-groups.less",
-    "alerts.less"
+    "navs.less",
+    "navbar.less",
+    "breadcrumbs.less",
+    "pagination.less",
+    "pager.less",
+    "labels.less",
+    "badges.less",
+    "jumbotron.less",
+    "thumbnails.less",
+    "alerts.less",
+    "progress-bars.less",
+    "media.less",
+    "list-group.less",
+    "panels.less",
+    "responsive-embed.less",
+    "wells.less"
   ],
-  "js": [
-    "alert.js",
-    "button.js",
-    "carousel.js",
-    "dropdown.js",
-    "modal.js",
-    "tooltip.js",
-    "popover.js",
-    "tab.js",
-    "affix.js",
-    "collapse.js",
-    "scrollspy.js",
-    "transition.js"
-  ],
-  "customizerUrl": "http://getbootstrap.com/customize/?id=f34984af872e333649dbab446e43ac40"
+  "js": [],
+  "customizerUrl": "https://getbootstrap.com/docs/3.3/customize/?id=9e09cf07aa4fbe81d181d8967bb09458"
 }

@@ -21,6 +21,8 @@ final class HomeController extends AbstractController
      */
     public function __construct(Container $container) {
         parent::__construct($container);
+
+	    $this->translator->addTranslation($this->settings['translation_path'], 'home');
     }
 
     /**
@@ -36,9 +38,10 @@ final class HomeController extends AbstractController
         $this->logger->logRequest($request);
 
         return $this->container->get('renderer')->render($response, 'home/home.twig', [
-            'translator' => $this->translator,
-            'page_title' => 'Home',
-            'hostname'   => $request->getUri()->getHost(),
+	        'translator' => $this->translator,
+	        'page_title' => $this->translator->t('page_title'),
+	        'page_description' => $this->translator->t('page_description'),
+	        'page_keywords' => $this->translator->t('page_keywords'),
         ]);
     }
 }
