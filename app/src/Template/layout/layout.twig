@@ -8,15 +8,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>{{ page_title }}</title>
-	<meta name="description" content="">
-	<meta name="keywords" content="">
-	<meta property="og:title" content="">
-	<meta property="og:site_name" content="">
-	<meta property="og:image" content="">
-	<meta property="og:url" content="">
-	<meta property="og:description" content="">
-	<meta property="og:type" content="">
-	<meta property="og:locale" content="">
+	<meta name="description" content="{% if page_description is defined %}{{ page_description }}{% endif %}">
+	<meta name="keywords" content="{% if page_keywords is defined %}{{ page_keywords }}{% endif %}">
 	<meta name="robots" content="index,follow">
 	<meta name="author" content="Alexander Schmidt">
 	<meta name="copyright" content="Internet of Voice">

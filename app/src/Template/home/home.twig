@@ -7,12 +7,27 @@
 {% block page_title %}{{ page_title }}{% endblock %}
 
 {% block body %}
-<div class="container">
-    <div class="page-header">
-        <h1>Voice Skill Management System</h1>
-    </div>
+    <div class="container">
+        <div class="jumbotron jumbotron--home">
+            <h1>Voice Skill Management System</h1>
+            <p>{{ translator.t('page_description') }}</p>
+        </div>
 
-    <p>Willkommen zu {{ hostname }}! Weitere Infos folgen bald.</p>
-    <p>In der Zwischenzeit schauen Sie doch mal bei <a href="https://internet-of-voice.de/">Internet of Voice</a> vorbei.</p>
-</div>
+        <div class="container--home">
+            <h1>{{ translator.t('What is this about?') }}</h1>
+            <p>
+                {{ translator.t('VSMS is a skill development framework for voice assistants such as Amazon Voice Service.') }}
+                {{ translator.t('It aims at agile skill development by incorporating boilerplate code into a framework and is released as open source.') }}
+            </p>
+
+            <h1>{{ translator.t('Can I use it too?') }}</h1>
+            <p>{{ translator.t('The easiest way to use VSMS is to get a copy of the application skeleton available at GitHub.') }}</p>
+            <p class="text-center text--standout">
+                <a class="btn btn-primary btn-lg" href="https://github.com/internetofvoice/vsms-skeleton" role="button">
+                    {{ translator.t('VSMS-Skeleton at GitHub') }}
+                </a>
+            </p>
+            <p class="text-center">{{ translator.t('Additional information on voice assistants you will find on %s.', '<a class="link" href="https://internet-of-voice.de/">Internet of Voice</a>')|raw }}</p>
+        </div>
+    </div>
 {% endblock %}
