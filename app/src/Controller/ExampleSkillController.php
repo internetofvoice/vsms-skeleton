@@ -15,6 +15,9 @@ final class ExampleSkillController extends AbstractSkillController
 {
 	// --- Skill Basics -------------------------------------------------------
 
+	/** @var string $skillHandle */
+	protected $skillHandle = 'example';
+
 	/** @var array $askApplicationIds */
     protected $askApplicationId = [
         'dev'   => 'amzn1.ask.skill.b5ec8cfa-d9e5-40c9-8325-c56927a2e42b',
@@ -67,6 +70,16 @@ final class ExampleSkillController extends AbstractSkillController
     public function __construct(Container $container) {
         parent::__construct($container);
 
+	    // Use skill-specific logfile
+	    $logfile = dirname($this->settings['logger']['file']) . '/' . $this->skillHandle . '.log';
+	    $this->logger->handler(\Analog\Handler\Threshold::init (
+		    \Analog\Handler\LevelName::init(
+			    \Analog\Handler\File::init($logfile)
+		    ),
+		    $this->settings['logger']['threshold']
+	    ));
+
+	    // Initialize Service
         $this->service = new ExampleService();
         $this->service->setSkillHelper($this->skillHelper);
     }
