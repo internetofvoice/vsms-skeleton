@@ -12,6 +12,10 @@ use Slim\Container;
  */
 final class ExampleLinkController extends AbstractLinkController
 {
+	/** @var string $skillHandle */
+	protected $skillHandle = 'example';
+
+
     /**
      * Constructor
      *
@@ -21,6 +25,15 @@ final class ExampleLinkController extends AbstractLinkController
      */
     public function __construct(Container $container) {
         parent::__construct($container);
+
+	    // Use skill-specific logfile
+	    $logfile = dirname($this->settings['logger']['file']) . '/' . $this->skillHandle . '.log';
+	    $this->logger->handler(\Analog\Handler\Threshold::init (
+		    \Analog\Handler\LevelName::init(
+			    \Analog\Handler\File::init($logfile)
+		    ),
+		    $this->settings['logger']['threshold']
+	    ));
 
         $this->translator->addTranslation($this->settings['translation_path'], 'example');
     }

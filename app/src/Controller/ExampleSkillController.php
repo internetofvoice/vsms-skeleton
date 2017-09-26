@@ -15,8 +15,11 @@ final class ExampleSkillController extends AbstractSkillController
 {
 	// --- Skill Basics -------------------------------------------------------
 
+	/** @var string $skillHandle */
+	protected $skillHandle = 'example';
+
 	/** @var array $askApplicationIds */
-    protected $askApplicationId = [
+    protected $askApplicationIds = [
         'dev'   => 'amzn1.ask.skill.b5ec8cfa-d9e5-40c9-8325-c56927a2e42b',
         'test'  => 'amzn1.ask.skill.b5ec8cfa-d9e5-40c9-8325-c56927a2e42b',
         'stage' => 'amzn1.ask.skill.b5ec8cfa-d9e5-40c9-8325-c56927a2e42b',
@@ -67,6 +70,16 @@ final class ExampleSkillController extends AbstractSkillController
     public function __construct(Container $container) {
         parent::__construct($container);
 
+	    // Use skill-specific logfile
+	    $logfile = dirname($this->settings['logger']['file']) . '/' . $this->skillHandle . '.log';
+	    $this->logger->handler(\Analog\Handler\Threshold::init (
+		    \Analog\Handler\LevelName::init(
+			    \Analog\Handler\File::init($logfile)
+		    ),
+		    $this->settings['logger']['threshold']
+	    ));
+
+	    // Initialize Service
         $this->service = new ExampleService();
         $this->service->setSkillHelper($this->skillHelper);
     }
@@ -83,10 +96,20 @@ final class ExampleSkillController extends AbstractSkillController
      * @see     routing configuration
      */
     public function __invoke($request, $response, $args) {
-        $this->createAlexaRequest($request);
-        $this->translator->addTranslation($this->settings['translation_path'], 'example');
+	    try {
+	    	// Create AlexaRequest
+	        $this->createAlexaRequest($request);
 
-        return $this->dispatchAlexaRequest($response);
+	        // Add translation as AlexaRequest sets a locale
+	        $this->translator->addTranslation($this->settings['translation_path'], 'example');
+
+	        // Dispatch AlexaRequest to intent handlers
+		    $reply = $this->dispatchAlexaRequest($response);
+	    } catch(\Exception $e) {
+		    return $response->withJson(['error' => 'Bad Request'], 400);
+	    }
+
+	    return $reply;
     }
 
 
