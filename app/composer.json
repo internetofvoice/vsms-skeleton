@@ -26,7 +26,8 @@
     ],
     "require": {
         "php": ">=5.6.0",
-        "internetofvoice/vsms-core": "^1.0",
+        "internetofvoice/libvoice": "dev-develop",
+        "internetofvoice/vsms-core": "dev-develop",
         "slim/twig-view": "^2.2",
         "analog/analog": "dev-master"
     },

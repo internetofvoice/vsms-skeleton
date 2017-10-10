@@ -37,7 +37,7 @@ $ composer install
 
 ## Outline
 ### Libraries
-* Amazon-Alexa-PHP: https://github.com/internetofvoice/amazon-alexa-php
+* LibVoice: https://github.com/internetofvoice/libvoice
 * VSMS-Core: https://github.com/internetofvoice/vsms-core
 * Slim: https://www.slimframework.com
 * Analog: https://github.com/jbroadway/analog

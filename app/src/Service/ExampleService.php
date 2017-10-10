@@ -5,13 +5,15 @@ namespace Acme\Skill\Service;
 use InternetOfVoice\VSMS\Core\Service\AbstractService;
 
 /**
- * ExampleService
+ * Class ExampleService
+ *
+ * This service provides some static data for demonstration purposes, in a real-world
+ * implementation it would, of course, fetch data from an outside source.
  *
  * @author  Alexander Schmidt <a.schmidt@internet-of-voice.de>
+ * @license http://opensource.org/licenses/MIT
  */
-
-class ExampleService extends AbstractService
-{
+class ExampleService extends AbstractService {
 	private static $capitals = [
 		'en' => [
 			"Abkhazia" => "Sukhumi",
@@ -481,6 +483,7 @@ class ExampleService extends AbstractService
 	 * @author	a.schmidt@internet-of-voice.de
 	 */
 	public function getCapital($language, $country) {
+	    // No data for the requested language
 		if(!isset(self::$capitals[$language])) {
 			return false;
 		}
@@ -490,15 +493,12 @@ class ExampleService extends AbstractService
             return self::$capitals[$language][$country];
         }
 
-        // Alexa might supply slots in lowercase, so additionally try to match all in lowercase
-        $lower_country  = mb_strtolower($country, 'UTF-8');
-        $lower_capitals = array();
+        // Lowercase match? Slot values might be provided in lowercase..
+        $lower_country = mb_strtolower($country, 'UTF-8');
         foreach(self::$capitals[$language] as $key => $value) {
-            $lower_capitals[mb_strtolower($key, 'UTF-8')] = $value;
-        }
-
-        if(isset($lower_capitals[$lower_country])) {
-            return $lower_capitals[$lower_country];
+        	if(mb_strtolower($key, 'UTF-8') == $lower_country) {
+        	    return $value;
+            }
         }
 
         return false;

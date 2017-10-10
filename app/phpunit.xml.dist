@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit
+        bootstrap="vendor/autoload.php"
+        convertErrorsToExceptions="true"
+        convertNoticesToExceptions="true"
+        convertWarningsToExceptions="true"
+>
+    <testsuites>
+        <testsuite name="all">
+            <directory>test</directory>
+        </testsuite>
+
+        <testsuite name="controller">
+            <directory>test/Controller</directory>
+        </testsuite>
+
+        <testsuite name="service">
+            <directory>test/Service</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist>
+            <directory suffix=".php">./src</directory>
+        </whitelist>
+    </filter>
+
+    <logging>
+        <log type="coverage-html" target="./coverage" charset="UTF-8" highlight="true" />
+    </logging>
+</phpunit>

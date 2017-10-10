@@ -4,6 +4,7 @@
  * App configuration
  *
  * @author  Alexander Schmidt <a.schmidt@internet-of-voice.de>
+ * @license http://opensource.org/licenses/MIT
  */
 
 // Global settings
@@ -11,7 +12,8 @@ $environment         = getenv('APP_ENV') ?: 'prod'; // Get environment from APP_
 $base_dir            = realpath(__DIR__ . '/..');   // File system base directory
 $web_root            = '';                          // Web server base directory
 $displayErrorDetails = false;                       // Display error details?
-$validateCertificate = true;                        // Validate request certificates (i.e. Amazon's Signature Chain)?
+$validateTimestamp   = true;                        // Validate request timestamp?
+$validateCertificate = true;                        // Validate request certificates?
 $enableRenderCache   = true;                        // Enable view renderer's caching for processed templates?
 $logLevel            = \Analog::NOTICE;             // URGENT, ALERT, CRITICAL, ERROR, WARNING, NOTICE, INFO, DEBUG
 $logFormat           = '%2$s %3$s: %4$s' . PHP_EOL; // If remote IP should be included, use: '%s %s %s: %s' . PHP_EOL
@@ -56,6 +58,7 @@ return [
         'environment'            => $environment,
         'displayErrorDetails'    => $displayErrorDetails,
         'validateCertificate'    => $validateCertificate,
+        'validateTimestamp'      => $validateTimestamp,
         'addContentLengthHeader' => false,
 
         // Auto initialize these dependencies:

@@ -11,13 +11,12 @@ use Slim\Http\Response;
 use Slim\Http\Uri;
 
 /**
- * ControllerTestCase
+ * Class ControllerTestCase
  *
  * @author  Alexander Schmidt <a.schmidt@internet-of-voice.de>
+ * @license http://opensource.org/licenses/MIT
  */
-
-abstract class ControllerTestCase extends \PHPUnit_Framework_TestCase
-{
+abstract class ControllerTestCase extends \PHPUnit_Framework_TestCase {
     /**
      * Run the application
      *
