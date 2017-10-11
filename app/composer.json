@@ -1,6 +1,6 @@
 {
     "name": "internetofvoice/vsms-skeleton",
-    "description": "VSMS - a voice skill management system for voice assistant skills.",
+    "description": "VSMS - a voice skill management system for voice assistant interactions (skills).",
     "license": "MIT",
     "type": "project",
     "homepage": "http://www.internet-of-voice.de",
@@ -26,8 +26,7 @@
     ],
     "require": {
         "php": ">=5.6.0",
-        "internetofvoice/libvoice": "dev-develop",
-        "internetofvoice/vsms-core": "dev-develop",
+        "internetofvoice/vsms-core": "^1.2",
         "slim/twig-view": "^2.2",
         "analog/analog": "dev-master"
     },
