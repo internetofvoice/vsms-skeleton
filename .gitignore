@@ -1,5 +1,7 @@
 *.session
+app/coverage
 app/var/log/*
 app/var/rendered/*
 app/vendor
+app/phpunit.xml
 !.gitkeep

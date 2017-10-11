@@ -6,12 +6,12 @@ use InternetOfVoice\VSMS\Core\Controller\AbstractLinkController;
 use Slim\Container;
 
 /**
- * ExampleLinkController
+ * Class ExampleLinkController
  *
  * @author  Alexander Schmidt <a.schmidt@internet-of-voice.de>
+ * @license http://opensource.org/licenses/MIT
  */
-final class ExampleLinkController extends AbstractLinkController
-{
+class ExampleLinkController extends AbstractLinkController {
 	/** @var string $skillHandle */
 	protected $skillHandle = 'example';
 

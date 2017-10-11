@@ -7,14 +7,12 @@ use InternetOfVoice\VSMS\Core\Controller\AbstractSkillController;
 use Slim\Container;
 
 /**
- * ExampleSkillController
+ * Class ExampleSkillController
  *
  * @author	Alexander Schmidt <a.schmidt@internet-of-voice.de>
+ * @license http://opensource.org/licenses/MIT
  */
-final class ExampleSkillController extends AbstractSkillController
-{
-	// --- Skill Basics -------------------------------------------------------
-
+class ExampleSkillController extends AbstractSkillController {
 	/** @var string $skillHandle */
 	protected $skillHandle = 'example';
 
@@ -57,9 +55,6 @@ final class ExampleSkillController extends AbstractSkillController
     protected $service;
 
 
-    // --- Skill Bootstrap ----------------------------------------------------
-
-
     /**
      * Constructor
      *
@@ -79,7 +74,7 @@ final class ExampleSkillController extends AbstractSkillController
 		    $this->settings['logger']['threshold']
 	    ));
 
-	    // Initialize Service
+	    // Initialize Service and inject SkillHelper
         $this->service = new ExampleService();
         $this->service->setSkillHelper($this->skillHelper);
     }
@@ -93,14 +88,14 @@ final class ExampleSkillController extends AbstractSkillController
      * @return  \Slim\Http\Response
      * @access  public
      * @author  a.schmidt@internet-of-voice.de
-     * @see     routing configuration
+     * @see     routing configuration in app/config/routing.php
      */
     public function __invoke($request, $response, $args) {
 	    try {
 	    	// Create AlexaRequest
 	        $this->createAlexaRequest($request);
 
-	        // Add translation as AlexaRequest sets a locale
+	        // Add translation again, as AlexaRequest might come with a different locale
 	        $this->translator->addTranslation($this->settings['translation_path'], 'example');
 
 	        // Dispatch AlexaRequest to intent handlers
@@ -199,7 +194,6 @@ final class ExampleSkillController extends AbstractSkillController
 
 	// --- Helper Functions --------------------------------------------------
 
-
 	/**
 	 * startAccountLinking
 	 *
@@ -226,7 +220,7 @@ final class ExampleSkillController extends AbstractSkillController
 	protected function continueOrEndSession() {
 		$reply = '';
 
-		if($this->alexaRequest->session->new) {
+		if($this->alexaRequest->getSession()->isNew()) {
 			$reply .= $this->pause['default'] . $this->translator->t($this->messages['stop']);
 			$this->alexaResponse->endSession(true);
 		} else {
@@ -239,7 +233,6 @@ final class ExampleSkillController extends AbstractSkillController
 
 	// --- Particular Intents -------------------------------------------------
 
-
     /**
      * CapitalIntent request
      *
@@ -251,8 +244,9 @@ final class ExampleSkillController extends AbstractSkillController
         // Log request
         $this->logger->logRequest($this->container->get('request'));
 
-        // Check slots (parameters) sent along with the intent
-        $slots = $this->alexaRequest->slots;
+        // Check slots (parameters) sent along with the Intent
+        // We don't need the full Slot objects and use a [key => val] representation provided by getSlotsAsArray()
+        $slots = $this->alexaRequest->getIntent()->getSlotsAsArray();
         if(!isset($slots['country'])) {
 	        $this->logger->info('CapitalIntent failed with slots: ' . json_encode($slots));
 	        $this->alexaResponse
@@ -265,7 +259,7 @@ final class ExampleSkillController extends AbstractSkillController
 
         // Check if account is linked already, otherwise start account linking
         // (for educational purposes, as our example service does not query any user-specific data)
-		$token = $this->alexaRequest->session->user->accessToken;
+		$token = $this->alexaRequest->getUser()->getAccessToken();
 		if($token === null) {
 			$this->startAccountLinking();
 			return false;

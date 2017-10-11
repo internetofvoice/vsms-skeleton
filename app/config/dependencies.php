@@ -4,6 +4,7 @@
  * Dependency injection
  *
  * @author	Alexander Schmidt <a.schmidt@internet-of-voice.de>
+ * @license http://opensource.org/licenses/MIT
  */
 
 $container = $app->getContainer();

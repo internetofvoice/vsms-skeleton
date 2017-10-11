@@ -1,14 +1,15 @@
 # Voice Skill Management System (Skeleton)
 
-> A framework aiming at the rapid development of custom skills for voice assistants.
+> A framework aiming at the rapid development of custom interactions (skills) for voice assistant systems.
 
 ## Introduction
-VSMS is a skill development framework for voice assistants such as Amazon Voice Service. The intention is to speed up 
-skill development by incorporating boilerplate code into a framework. VSMS is preconfigured to run multiple skills as 
+VSMS is a development framework for voice assistants such as Amazon Voice Service. The intention is to speed up 
+development by incorporating boilerplate code into a framework. VSMS is preconfigured to run multiple skills as 
 well as serving HTML content. It can handle internationalisation and supports multiple server environments.
 
 VSMS is written in PHP and comes with Slim application framework, Twig template engine, Analog logger and PHPUnit
-(see "Libraries" section for more), but you are free to choose dependencies and a project structure as you see fit. 
+(see "Libraries" section for more), but you are of course free to choose dependencies and project structure as 
+you see fit. 
 
 ## Requirements
 * PHP (at least 5.6.0)
@@ -37,15 +38,13 @@ $ composer install
 
 ## Outline
 ### Libraries
-* Amazon-Alexa-PHP: https://github.com/internetofvoice/amazon-alexa-php
+* LibVoice: https://github.com/internetofvoice/libvoice
 * VSMS-Core: https://github.com/internetofvoice/vsms-core
 * Slim: https://www.slimframework.com
 * Analog: https://github.com/jbroadway/analog
 * Twig: https://twig.symfony.com
 * Twig-View: https://github.com/slimphp/Twig-View
 * PHPUnit: https://phpunit.de
-
-..and their dependencies.
 
 ### Directory structure
 ```
@@ -120,8 +119,8 @@ Apache example:
 export APP_ENV="dev"
 ```
 
-When doing so, you may set environment dependent configurations in `/app/config/settings.php` and application IDs in
-your skill controller(s). If you do not want to use this feature, set your configurations for the default *prod*.
+When doing so, you may set environment dependent configurations in `/app/config/settings.php`.
+If you do not want to use this feature, set your configurations for the default *prod*.
 
 Environments enable you for instance to skip request certificate validation (see `/app/config/settings.php`) 
 and thus to send test / fake requests to your app. Please do *not* disable the validation in your production version, 
@@ -142,7 +141,23 @@ The pre-configured URIs are:
 
 ### Sending skill requests using Postman
 Please find an example collection for Postman in `/app/test/Fixtures/Example.postman_collection.json`, import it 
-to Postman and tweak it to your needs - at least the request url and applicationId need to match your setup.
+to Postman and tweak it to your needs - at least the request url and applicationId need to match your setup. The
+provided examples do not work with certificate validation.
+
+### How to obtain example requests that pass validation?
+This is a little tricky, but the answer is: from Amazon. You might for instance use a test skill (or setup a new one)
+and point the URL to this PHP script:
+```php
+$body = file_get_contents('php://input');
+$headers = json_encode(getallheaders());
+
+file_put_contents('./test.log', "Body:\n$body\nHeader:\n$headers\n", FILE_APPEND);
+```
+It will write any input and request headers to `test.log`. Now use Amazons Service Simulator to send a request to
+your script. As it sends no response, the Simulator will show an error message, but that's fine - the request is
+logged to our file. Please be aware that the body part has to remain unchanged, that even applies to whitespaces
+and carriage returns. If your favorite editor/IDE is for instance setup to append a final newline, the body content
+might have changed when copying / pasting to your test fixtures.
 
 ### Running tests
 Composer.json is preconfigured with some scripts to invoke PHPUnit tests:
@@ -173,7 +188,7 @@ slot type provided by Amazon is used.
 
 As the skill demonstrates the account linking feature, you need to configure account linking with *implicit
 grant* and provide *authorization* and *privacy policy* URLs (see `/app/config/routing.php`). When using the skill
-and being asked to login for account linking, use the super secret credentials "test"/"test".
+and being asked to login for account linking, use the super secret credentials "test" / "test".
 
 
 ### Submit a skill for certification

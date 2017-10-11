@@ -6,12 +6,12 @@ use InternetOfVoice\VSMS\Core\Controller\AbstractController;
 use Slim\Container;
 
 /**
- * HomeController
+ * Class HomeController
  *
  * @author  Alexander Schmidt <a.schmidt@internet-of-voice.de>
+ * @license http://opensource.org/licenses/MIT
  */
-final class HomeController extends AbstractController
-{
+class HomeController extends AbstractController {
     /**
      * Constructor
      *
