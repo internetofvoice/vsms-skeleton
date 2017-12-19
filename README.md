@@ -23,6 +23,7 @@ you see fit.
 * Alexa-enabled device:
     - Hardware device like Echo, Echo Dot or similar products
     - Software service like [Reverb](https://reverb.ai/) or [Echosim](https://echosim.io/)
+* A tunneling service like [Pagekite](http://pagekite.net/) might come in handy for local development     
 
 ## Installation
 
@@ -98,7 +99,7 @@ here, which is used to generate a responsive login page for Amazon's account lin
 ## Setup
 ### Server
 - Setup an SSL-enabled web server / virtual host with PHP (5.6.0 or newer)
-- A secure tunneling service like https://ngrok.com might be useful to expose your machine to an HTTPS accessible URL
+- A secure tunneling service like [Pagekite](http://pagekite.net/) might be useful to expose your machine to an HTTPS accessible URL
 - Install VSMS as described in the "Installation" section above 
 
 ### Environments
@@ -172,7 +173,7 @@ $ composer test
 - Add a new skill 
 - Fill in the requested fields
 - Copy the application ID and paste it into your skill controller, test fixtures and fake requests 
-- Make your skill accessible via HTTPS by uploading it to a server or using a service like ngrok
+- Make your skill accessible via HTTPS by uploading it to a server or using a service like [Pagekite](http://pagekite.net/)
 - Put your skill URL (see `/app/config/routing.php`) into the skill configuration at ASK   
 - Test your skill with the Service Simulator provided by Amazon, with an Echo device or the Reverb app
 

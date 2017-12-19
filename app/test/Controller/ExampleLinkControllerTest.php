@@ -2,6 +2,10 @@
 
 namespace Tests\Controller;
 
+use \Exception;
+use \Slim\Exception\MethodNotAllowedException;
+use \Slim\Exception\NotFoundException;
+
 /**
  * Class ExampleLinkControllerTest
  *
@@ -13,7 +17,9 @@ class ExampleLinkControllerTest extends ControllerTestCase {
 	const PRIV_BASE_URL = '/example/privacy';
 
 	/**
-	 * testInvocation
+	 * @throws  Exception
+	 * @throws  MethodNotAllowedException
+	 * @throws  NotFoundException
 	 */
     public function testInvocation() {
         $fixture = json_decode(file_get_contents(__DIR__ . '/../Fixtures/ExampleLink.json'), true);
@@ -29,7 +35,9 @@ class ExampleLinkControllerTest extends ControllerTestCase {
     }
 
 	/**
-	 * testInvalidInvocation
+	 * @throws  Exception
+	 * @throws  MethodNotAllowedException
+	 * @throws  NotFoundException
 	 */
 	public function testInvalidInvocation() {
 		$fixture = json_decode(file_get_contents(__DIR__ . '/../Fixtures/ExampleLink.json'), true);
@@ -46,7 +54,9 @@ class ExampleLinkControllerTest extends ControllerTestCase {
 	}
 
 	/**
-     * testSubmission
+	 * @throws  Exception
+	 * @throws  MethodNotAllowedException
+	 * @throws  NotFoundException
      */
     public function testSubmission() {
         $fixture = json_decode(file_get_contents(__DIR__ . '/../Fixtures/ExampleLink.json'), true);
@@ -64,7 +74,9 @@ class ExampleLinkControllerTest extends ControllerTestCase {
     }
 
 	/**
-	 * testWrongPassword
+	 * @throws  Exception
+	 * @throws  MethodNotAllowedException
+	 * @throws  NotFoundException
 	 */
 	public function testWrongPassword() {
 		$fixture = json_decode(file_get_contents(__DIR__ . '/../Fixtures/ExampleLink.json'), true);
@@ -79,7 +91,9 @@ class ExampleLinkControllerTest extends ControllerTestCase {
 	}
 
 	/**
-	 * testEmptyPassword
+	 * @throws  Exception
+	 * @throws  MethodNotAllowedException
+	 * @throws  NotFoundException
 	 */
 	public function testEmptyPassword() {
 		$fixture = json_decode(file_get_contents(__DIR__ . '/../Fixtures/ExampleLink.json'), true);
@@ -94,7 +108,9 @@ class ExampleLinkControllerTest extends ControllerTestCase {
 	}
 
 	/**
-     * testPrivacy
+	 * @throws  Exception
+	 * @throws  MethodNotAllowedException
+	 * @throws  NotFoundException
      */
     public function testPrivacy() {
         $headers = [

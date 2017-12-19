@@ -2,6 +2,10 @@
 
 namespace Tests\Controller;
 
+use \Exception;
+use \Slim\Exception\MethodNotAllowedException;
+use \Slim\Exception\NotFoundException;
+
 /**
  * Class ExampleSkillControllerTest
  *
@@ -12,7 +16,9 @@ class ExampleSkillControllerTest extends ControllerTestCase {
 	const SKILL_BASE_URL = '/example/skill';
 
 	/**
-	 * testLaunchRequest
+	 * @throws  Exception
+	 * @throws  MethodNotAllowedException
+	 * @throws  NotFoundException
 	 */
 	public function testLaunchRequest() {
         $fixture  = json_decode(file_get_contents(__DIR__ . '/../Fixtures/ExampleRequest.json'), true);
@@ -30,7 +36,9 @@ class ExampleSkillControllerTest extends ControllerTestCase {
 	}
 
 	/**
-	 * testLaunchRequestGb
+	 * @throws  Exception
+	 * @throws  MethodNotAllowedException
+	 * @throws  NotFoundException
 	 */
 	public function testLaunchRequestGb() {
 		$fixture  = json_decode(file_get_contents(__DIR__ . '/../Fixtures/ExampleRequest.json'), true);
@@ -49,7 +57,9 @@ class ExampleSkillControllerTest extends ControllerTestCase {
 	}
 
 	/**
-	 * testStartOverIntent
+	 * @throws  Exception
+	 * @throws  MethodNotAllowedException
+	 * @throws  NotFoundException
 	 */
 	public function testStartOverIntent() {
 		$fixture  = json_decode(file_get_contents(__DIR__ . '/../Fixtures/ExampleRequest.json'), true);
@@ -67,7 +77,9 @@ class ExampleSkillControllerTest extends ControllerTestCase {
 	}
 
 	/**
-	 * testSessionEnded
+	 * @throws  Exception
+	 * @throws  MethodNotAllowedException
+	 * @throws  NotFoundException
 	 */
 	public function testSessionEnded() {
 		$fixture  = json_decode(file_get_contents(__DIR__ . '/../Fixtures/ExampleRequest.json'), true);
@@ -79,7 +91,9 @@ class ExampleSkillControllerTest extends ControllerTestCase {
 	}
 
 	/**
-	 * testHelpIntent
+	 * @throws  Exception
+	 * @throws  MethodNotAllowedException
+	 * @throws  NotFoundException
 	 */
 	public function testHelpIntent() {
         $fixture  = json_decode(file_get_contents(__DIR__ . '/../Fixtures/ExampleRequest.json'), true);
@@ -103,7 +117,9 @@ class ExampleSkillControllerTest extends ControllerTestCase {
 	}
 
 	/**
-	 * testStopIntent
+	 * @throws  Exception
+	 * @throws  MethodNotAllowedException
+	 * @throws  NotFoundException
 	 */
 	public function testStopIntent() {
         $fixture  = json_decode(file_get_contents(__DIR__ . '/../Fixtures/ExampleRequest.json'), true);
@@ -121,7 +137,9 @@ class ExampleSkillControllerTest extends ControllerTestCase {
 	}
 
 	/**
-	 * testCancelIntent
+	 * @throws  Exception
+	 * @throws  MethodNotAllowedException
+	 * @throws  NotFoundException
 	 */
 	public function testCancelIntent() {
 		$fixture  = json_decode(file_get_contents(__DIR__ . '/../Fixtures/ExampleRequest.json'), true);
@@ -139,7 +157,9 @@ class ExampleSkillControllerTest extends ControllerTestCase {
 	}
 
 	/**
-	 * testCapitalIntentLink
+	 * @throws  Exception
+	 * @throws  MethodNotAllowedException
+	 * @throws  NotFoundException
 	 */
 	public function testCapitalIntentLink() {
         $fixture  = json_decode(file_get_contents(__DIR__ . '/../Fixtures/ExampleRequest.json'), true);
@@ -157,7 +177,9 @@ class ExampleSkillControllerTest extends ControllerTestCase {
 	}
 
 	/**
-	 * testCapitalIntentLinked
+	 * @throws  Exception
+	 * @throws  MethodNotAllowedException
+	 * @throws  NotFoundException
 	 */
 	public function testCapitalIntentLinked() {
 		$fixture  = json_decode(file_get_contents(__DIR__ . '/../Fixtures/ExampleRequest.json'), true);
@@ -177,7 +199,9 @@ class ExampleSkillControllerTest extends ControllerTestCase {
 	}
 
 	/**
-	 * testCapitalIntentSession
+	 * @throws  Exception
+	 * @throws  MethodNotAllowedException
+	 * @throws  NotFoundException
 	 */
 	public function testCapitalIntentSession() {
 		$fixture  = json_decode(file_get_contents(__DIR__ . '/../Fixtures/ExampleRequest.json'), true);
@@ -199,7 +223,9 @@ class ExampleSkillControllerTest extends ControllerTestCase {
 	}
 
 	/**
-	 * testCapitalIntentNoSlot
+	 * @throws  Exception
+	 * @throws  MethodNotAllowedException
+	 * @throws  NotFoundException
 	 */
 	public function testCapitalIntentNoSlot() {
 		$fixture  = json_decode(file_get_contents(__DIR__ . '/../Fixtures/ExampleRequest.json'), true);
@@ -219,7 +245,9 @@ class ExampleSkillControllerTest extends ControllerTestCase {
 	}
 
 	/**
-	 * testCapitalIntentUnknownCountry
+	 * @throws  Exception
+	 * @throws  MethodNotAllowedException
+	 * @throws  NotFoundException
 	 */
 	public function testCapitalIntentUnknownCountry() {
 		$fixture  = json_decode(file_get_contents(__DIR__ . '/../Fixtures/ExampleRequest.json'), true);
@@ -240,7 +268,9 @@ class ExampleSkillControllerTest extends ControllerTestCase {
 	}
 
 	/**
-	 * testBadRequest
+	 * @throws  Exception
+	 * @throws  MethodNotAllowedException
+	 * @throws  NotFoundException
 	 */
 	public function testBadRequest() {
 		$response = $this->runApp('POST', self::SKILL_BASE_URL, [], '');

@@ -2,13 +2,16 @@
 
 namespace Tests\Controller;
 
-use Slim\App;
-use Slim\Http\Environment;
-use Slim\Http\Headers;
-use Slim\Http\Request;
-use Slim\Http\RequestBody;
-use Slim\Http\Response;
-use Slim\Http\Uri;
+use \Exception;
+use \Slim\App;
+use \Slim\Exception\MethodNotAllowedException;
+use \Slim\Exception\NotFoundException;
+use \Slim\Http\Environment;
+use \Slim\Http\Headers;
+use \Slim\Http\Request;
+use \Slim\Http\RequestBody;
+use \Slim\Http\Response;
+use \Slim\Http\Uri;
 
 /**
  * Class ControllerTestCase
@@ -25,6 +28,9 @@ abstract class ControllerTestCase extends \PHPUnit_Framework_TestCase {
      * @param  array|null           $headers    additional HTTP headers
      * @param  array|object|null    $data       Request data
      * @return \Psr\Http\Message\ResponseInterface
+     * @throws Exception
+     * @throws MethodNotAllowedException
+     * @throws NotFoundException
      */
     public function runApp($method, $uri, $headers = [], $data = null) {
         $headers = array_merge([

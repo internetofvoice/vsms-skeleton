@@ -2,9 +2,10 @@
 
 namespace Acme\Skill\Controller;
 
-use Acme\Skill\Service\ExampleService;
-use InternetOfVoice\VSMS\Core\Controller\AbstractSkillController;
-use Slim\Container;
+use \Acme\Skill\Service\ExampleService;
+use \InternetOfVoice\VSMS\Core\Controller\AbstractSkillController;
+use \Interop\Container\Exception\ContainerException;
+use \Slim\Container;
 
 /**
  * Class ExampleSkillController
@@ -60,6 +61,7 @@ class ExampleSkillController extends AbstractSkillController {
      *
      * @param   \Slim\Container     $container
      * @access	public
+     * @throws  ContainerException
      * @author	a.schmidt@internet-of-voice.de
      */
     public function __construct(Container $container) {
@@ -238,6 +240,7 @@ class ExampleSkillController extends AbstractSkillController {
      *
      * @return  bool
      * @access	protected
+     * @throws  ContainerException
      * @author	a.schmidt@internet-of-voice.de
      */
     protected function intentCapitalIntent() {
