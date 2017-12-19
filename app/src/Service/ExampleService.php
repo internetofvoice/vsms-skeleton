@@ -504,5 +504,3 @@ class ExampleService extends AbstractService {
         return false;
 	}
 }
-
-?>

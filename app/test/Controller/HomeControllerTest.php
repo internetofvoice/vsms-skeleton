@@ -2,6 +2,10 @@
 
 namespace Tests\Controller;
 
+use \Exception;
+use \Slim\Exception\MethodNotAllowedException;
+use \Slim\Exception\NotFoundException;
+
 /**
  * Class HomeControllerTest
  *
@@ -10,7 +14,9 @@ namespace Tests\Controller;
  */
 class HomeControllerTest extends ControllerTestCase {
     /**
-     * testHome
+     * @throws  Exception
+     * @throws  MethodNotAllowedException
+     * @throws  NotFoundException
      */
     public function testHome() {
         $response = $this->runApp('GET', '/');
@@ -25,7 +31,9 @@ class HomeControllerTest extends ControllerTestCase {
     }
 
 	/**
-	 * testHomeDe
+	 * @throws  Exception
+	 * @throws  MethodNotAllowedException
+	 * @throws  NotFoundException
 	 */
 	public function testHomeDe() {
 		$headers = [
@@ -37,7 +45,9 @@ class HomeControllerTest extends ControllerTestCase {
 	}
 
 	/**
-	 * testHomeGb
+	 * @throws  Exception
+	 * @throws  MethodNotAllowedException
+	 * @throws  NotFoundException
 	 */
 	public function testHomeGb() {
 		$headers = [

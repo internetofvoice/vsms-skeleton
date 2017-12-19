@@ -2,8 +2,9 @@
 
 namespace Acme\Skill\Controller;
 
-use InternetOfVoice\VSMS\Core\Controller\AbstractController;
-use Slim\Container;
+use \InternetOfVoice\VSMS\Core\Controller\AbstractController;
+use \Interop\Container\Exception\ContainerException;
+use \Slim\Container;
 
 /**
  * Class HomeController
@@ -17,6 +18,7 @@ class HomeController extends AbstractController {
      *
      * @param   \Slim\Container     $container
      * @access	public
+     * @throws  ContainerException
      * @author	a.schmidt@internet-of-voice.de
      */
     public function __construct(Container $container) {
@@ -28,11 +30,12 @@ class HomeController extends AbstractController {
     /**
      * Home
      *
-     * @param  \Slim\Http\Request   $request    Slim request
-     * @param  \Slim\Http\Response  $response   Slim response
-     * @return \Slim\Http\Response
-     * @access public
-     * @author a.schmidt@internet-of-voice.de
+     * @param   \Slim\Http\Request   $request    Slim request
+     * @param   \Slim\Http\Response  $response   Slim response
+     * @return  \Slim\Http\Response
+     * @access  public
+     * @throws  ContainerException
+     * @author  a.schmidt@internet-of-voice.de
      */
     public function home($request, $response) {
         $this->logger->logRequest($request);

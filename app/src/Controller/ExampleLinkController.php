@@ -2,8 +2,9 @@
 
 namespace Acme\Skill\Controller;
 
-use InternetOfVoice\VSMS\Core\Controller\AbstractLinkController;
-use Slim\Container;
+use \InternetOfVoice\VSMS\Core\Controller\AbstractLinkController;
+use \Interop\Container\Exception\ContainerException;
+use \Slim\Container;
 
 /**
  * Class ExampleLinkController
@@ -21,6 +22,7 @@ class ExampleLinkController extends AbstractLinkController {
      *
      * @param   \Slim\Container     $container
      * @access	public
+     * @throws  ContainerException
      * @author	a.schmidt@internet-of-voice.de
      */
     public function __construct(Container $container) {
@@ -47,6 +49,7 @@ class ExampleLinkController extends AbstractLinkController {
      * @param 	\Slim\Http\Response		$response 	Slim response
      * @return  \Slim\Http\Response
      * @access	public
+     * @throws  ContainerException
      * @author	a.schmidt@internet-of-voice.de
      */
     public function __invoke($request, $response) {
@@ -108,6 +111,7 @@ class ExampleLinkController extends AbstractLinkController {
      * @param 	\Slim\Http\Response		$response 	Slim response
      * @return  \Slim\Http\Response
      * @access	public
+     * @throws  ContainerException
      * @author	a.schmidt@internet-of-voice.de
      */
     public function privacy($request, $response) {
