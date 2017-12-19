@@ -2,6 +2,10 @@
 
 Changes are documented in reverse chronological order.
 
+## Version 1.2.1 (2017-12-19)
+* Extend exception handling
+* Update README
+
 ## Version 1.2.0 (2017-10-11)
 * Switch to [LibVoice](https://github.com/internetofvoice/libvoice) library
 * Switch to [VSMS-Core](https://github.com/internetofvoice/vsms-core) version 1.2.0
