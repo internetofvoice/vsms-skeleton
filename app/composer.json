@@ -26,9 +26,8 @@
     ],
     "require": {
         "php": ">=5.6.0",
-        "internetofvoice/vsms-core": "^1.2",
-        "slim/twig-view": "^2.2",
-        "analog/analog": "dev-master"
+        "internetofvoice/vsms-core": "^1.2.4",
+        "slim/twig-view": "^2.2"
     },
     "require-dev": {
         "phpunit/phpunit": ">=5.7 < 6.0"

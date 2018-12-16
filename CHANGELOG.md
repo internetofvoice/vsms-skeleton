@@ -2,6 +2,9 @@
 
 Changes are documented in reverse chronological order.
 
+## Version 1.2.2 (2018-12-16)
+* Switch to [analog-stable](https://github.com/jbroadway/analog) library
+ 
 ## Version 1.2.1 (2017-12-19)
 * Extend exception handling
 * Update README
