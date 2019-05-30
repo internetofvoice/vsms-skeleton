@@ -2,7 +2,8 @@
 
 namespace Tests\Service;
 
-use Acme\Skill\Service\ExampleService;
+use \Acme\Skill\Service\ExampleService;
+use \PHPUnit\Framework\TestCase;
 
 /**
  * Class ExampleServiceTest
@@ -10,7 +11,7 @@ use Acme\Skill\Service\ExampleService;
  * @author  Alexander Schmidt <a.schmidt@internet-of-voice.de>
  * @license http://opensource.org/licenses/MIT
  */
-class ExampleServiceTest extends \PHPUnit_Framework_TestCase {
+class ExampleServiceTest extends TestCase {
 	/**
 	 * testGetCapital
 	 */
