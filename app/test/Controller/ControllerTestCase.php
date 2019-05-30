@@ -3,6 +3,8 @@
 namespace Tests\Controller;
 
 use \Exception;
+use \PHPUnit\Framework\TestCase;
+use \Psr\Http\Message\ResponseInterface;
 use \Slim\App;
 use \Slim\Exception\MethodNotAllowedException;
 use \Slim\Exception\NotFoundException;
@@ -19,7 +21,7 @@ use \Slim\Http\Uri;
  * @author  Alexander Schmidt <a.schmidt@internet-of-voice.de>
  * @license http://opensource.org/licenses/MIT
  */
-abstract class ControllerTestCase extends \PHPUnit_Framework_TestCase {
+abstract class ControllerTestCase extends TestCase {
     /**
      * Run the application
      *
@@ -27,7 +29,7 @@ abstract class ControllerTestCase extends \PHPUnit_Framework_TestCase {
      * @param  string               $uri        Request URI
      * @param  array|null           $headers    additional HTTP headers
      * @param  array|object|null    $data       Request data
-     * @return \Psr\Http\Message\ResponseInterface
+     * @return ResponseInterface
      * @throws Exception
      * @throws MethodNotAllowedException
      * @throws NotFoundException

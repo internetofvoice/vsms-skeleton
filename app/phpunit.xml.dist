@@ -27,6 +27,6 @@
     </filter>
 
     <logging>
-        <log type="coverage-html" target="./coverage" charset="UTF-8" highlight="true" />
+        <log type="coverage-html" target="./coverage" />
     </logging>
 </phpunit>

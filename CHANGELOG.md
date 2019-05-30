@@ -2,6 +2,9 @@
 
 Changes are documented in reverse chronological order.
 
+## Version 1.3.0 (2019-05-30)
+* Switch to libvoice-1.3.0, vsms-core-1.4.0 and PHPUnit7
+
 ## Version 1.2.2 (2018-12-16)
 * Switch to [analog-stable](https://github.com/jbroadway/analog) library
  
